@@ -1,4 +1,4 @@
-Using Python Django framework to develop the cloud platform.
+Using Python Django framework to develop the cloud platform.    
 Features include:
 - connection management
 - message transmission
