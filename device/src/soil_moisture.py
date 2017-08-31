@@ -1,7 +1,7 @@
 #soil moisture sensor.
 #VCC, GND, AO, DO
-#DO <--> GPIO
-#AO <--> ADC Port
+#DO <--> GPIO(Y12)
+#AO <--> ADC Port(Y11)
 #if value is low than defined data, DO value is 0, 
 #if value is high than defined data, DO value is 1.
 #AO is the specific value.
