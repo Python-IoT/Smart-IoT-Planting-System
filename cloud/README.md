@@ -4,5 +4,5 @@ Features include:
 - message transmission(user browser <--> server <--> gateway <--> device)
 - device monitoring(consist of gateway<cpu temperature, on-line status> and device(battery volume, on-line status))
 - data visualization(echars python, environment data from sensor, plant grow status, alarm record)
-- data storage
+- data storage(store data in MySQL)
 - user interface
