@@ -2,7 +2,7 @@ Using Python Django framework to develop the cloud platform.
 Features include:
 - connection management(support plenty of clients)
 - message transmission(user browser <--> server <--> gateway <--> device)
-- device monitoring
+- device monitoring(consist of gateway<cpu temperature, on-line status> and device(battery volume, on-line status))
 - data visualization
 - data storage
 - user interface
