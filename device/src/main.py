@@ -27,7 +27,8 @@ if __name__=='__main__':
   tempValue = DQ.read_temp()
   
   
-###reference###
+###reference begin###
+"""
 import pyb
 from pyb import Pin
 from ds18x20 import DS18X20
@@ -53,4 +54,5 @@ if __name__=='__main__':
  DQ=DS18X20(Pin('Y10')) #DQ
  while True:
   tempValue = DQ.read_temp()
- ### 
+ ###reference end###
+ """
