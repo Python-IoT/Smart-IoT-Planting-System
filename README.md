@@ -19,3 +19,6 @@ Smart IoT Planting System is a intelligence planting project consist of sensors,
 - gateway(raspberryPi) wiring and software deployment and application running
 - deploy source code of cloud on server and execute it
 - test the system via browser
+
+## Cloud UI:
+![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/virtualization_demo.png)
