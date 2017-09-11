@@ -5,6 +5,7 @@ Smart IoT Planting System is a intelligence planting project consist of sensors,
 - environmental(air temperature&humility, light intensity, soil moisture, water level, raining volume ) monitoring
 - automatic irrigation
 - security&alarm
+- lighting controlling
 
 ## Software architecture:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/sys-arch-diagram.png)
