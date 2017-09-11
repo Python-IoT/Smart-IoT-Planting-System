@@ -1,7 +1,7 @@
 The instruction for deployment.
 1. Devices:
 - TPYBoard firmware download
-- wiring between devices and sensors
+- wiring between devices and sensors&communication module(LoRa)
 2. Gateway:
 - RaspberryPi operating system download and sd card setup
 - wiring between RaspberryPi and LoRa module, 2G GSM module
