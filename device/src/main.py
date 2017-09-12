@@ -22,6 +22,8 @@ tim1.init(freq=1/5)
  
 if __name__=='__main__':
  print('Smart IoT Plant System')
+ #LED shining regularly(using timer) to indicate the program is running correctly
+ #send on-line message to gateway to notifiy and obtain own data from gateway's database
  DQ=DS18X20(Pin('Y10')) #DQ
  while True:
   tempValue = DQ.read_temp()
@@ -51,8 +53,6 @@ tim1.init(freq=1/5)
  
 if __name__=='__main__':
  print('Smart IoT Plant System')
- #LED shining regularly(using timer) to indicate the program is running correctly
- #send on-line message to gateway to notifiy and obtain own data from gateway's database
  DQ=DS18X20(Pin('Y10')) #DQ
  while True:
   tempValue = DQ.read_temp()
