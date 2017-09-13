@@ -35,3 +35,6 @@ i2c.deinit()                         # turn off the peripheral
 i2c.init(I2C.MASTER)
 i2c.send('123', 0x23)        # send 3 bytes to slave with address 0x23
 i2c.send(b'456', addr=0x23)  # keyword for address
+
+i2c.is_ready(0x23)           # check if slave 0x23 is ready
+i2c.scan()                   # scan for slaves on the bus, returning
