@@ -16,4 +16,4 @@ adc = pyb.ADC(Pin('Y11'))       # create an analog object from a pin
 adc = pyb.ADC(pyb.Pin.board.Y11)
 val = adc.read()                # read an analog value
 
-#Light intensity sensor(GY-30)
+#Light intensity sensor(GY-30) <--> I2C(1)
