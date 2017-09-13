@@ -23,3 +23,10 @@ val = adc.read()                # read an analog value
 #VCC
 #GND
 #ADO(ADDR/address ?)
+
+from pyb import I2C
+
+i2c = I2C(1)                         # create on bus 1
+i2c = I2C(1, I2C.MASTER)             # create and init as a master
+i2c.init(I2C.MASTER, baudrate=20000) # init as a master
+i2c.init(I2C.SLAVE, addr=0x23)       # init as a slave with given address(GY-30 address is 0x23)
