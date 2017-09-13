@@ -21,3 +21,4 @@ val = adc.read()                # read an analog value
 #SDA <--> X10
 #SCL <--> X9
 #VCC
+#GND
