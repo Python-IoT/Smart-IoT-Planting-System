@@ -22,3 +22,4 @@ val = adc.read()                # read an analog value
 #SCL <--> X9
 #VCC
 #GND
+#ADO(ADDR/address ?)
