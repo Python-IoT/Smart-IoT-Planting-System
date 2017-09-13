@@ -33,3 +33,5 @@ i2c.init(I2C.SLAVE, addr=0x23)       # init as a slave with given address(GY-30 
 i2c.deinit()                         # turn off the peripheral
 
 i2c.init(I2C.MASTER)
+i2c.send('123', 0x23)        # send 3 bytes to slave with address 0x23
+i2c.send(b'456', addr=0x23)  # keyword for address
