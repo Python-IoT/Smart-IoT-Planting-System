@@ -43,3 +43,27 @@ i2c.mem_read(3, 0x23, 2)     # read 3 bytes from memory of slave 0x23,
                              #   starting at address 2 in the slave
 i2c.mem_write('abc', 0x23, 2, timeout=1000) # write 'abc' (3 bytes) to memory of slave 0x23
                                             # starting at address 2 in the slave, timeout after 1 second
+#Test log:
+>>> from pyb import I2C
+>>> i2c=I2C(1)
+>>> i2c=I2C(1,I2C.MASTER)
+>>> i2c.i2c.init(I2C.MASTER, baudrate=20000)
+>>> i2c.init(I2C.MASTER, baudrate=20000)
+>>> i2c.init(I2C.SLAVE,addr=0x23)
+>>> i2c.is_ready(0x23)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: I2C must be a master
+>>> i2c.scan()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+TypeError: I2C must be a master
+>>> i2c.init(I2C.MASTER)
+>>> i2c.scan()
+[35]
+>>> i2c.is_ready(0x35)
+False
+>>> i2c.is_ready(0x23)
+True
+>>> i2c.mem_read(3,0x23,2)
+b'\x00\x00\xff'
