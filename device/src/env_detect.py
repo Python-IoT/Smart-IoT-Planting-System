@@ -19,3 +19,4 @@ val = adc.read()                # read an analog value
 #-----------------------------------------#
 #Light intensity sensor(GY-30) <--> I2C(1)
 #SDA <--> X10
+#SCL <--> X9
