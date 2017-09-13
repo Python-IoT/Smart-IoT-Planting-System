@@ -61,6 +61,7 @@ TypeError: I2C must be a master
 >>> i2c.init(I2C.MASTER)
 >>> i2c.scan()
 [35]
+Note:35 = 0x23
 >>> i2c.is_ready(0x35)
 False
 >>> i2c.is_ready(0x23)
