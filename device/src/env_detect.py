@@ -38,3 +38,8 @@ i2c.send(b'456', addr=0x23)  # keyword for address
 
 i2c.is_ready(0x23)           # check if slave 0x23 is ready
 i2c.scan()                   # scan for slaves on the bus, returning
+
+i2c.mem_read(3, 0x23, 2)     # read 3 bytes from memory of slave 0x23,
+                             #   starting at address 2 in the slave
+i2c.mem_write('abc', 0x23, 2, timeout=1000) # write 'abc' (3 bytes) to memory of slave 0x23
+                                            # starting at address 2 in the slave, timeout after 1 second
