@@ -23,6 +23,13 @@ val = adc.read()                # read an analog value
 #VCC
 #GND
 #ADO(ADDR/address) <--> None
+#Command list:
+#0x00 power off
+#0x01	power on
+#0x07	reset
+#0x10	Continuously H-Resolution Mode, 1lx resolution, measurement time is typically 120ms
+#0x11	0.5lx, 120ms
+#0x13	4lx, 16ms
 
 from pyb import I2C
 
