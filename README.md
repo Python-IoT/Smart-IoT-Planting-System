@@ -1,7 +1,7 @@
 # Smart-IoT-Planting-System
 Smart IoT Planting System is a intelligence planting project consist of sensors,actuator,LoRa,gateway,cloud.  
 ## Features:
-- device(node and gateway) management
+- device(node and gateway) management(device battery, device watchdog reboot log, gateway CPU, on-line status)
 - environmental(air temperature&humility, light intensity, soil moisture, water level, raining volume ) monitoring
 - automatic irrigation
 - security&alarm
