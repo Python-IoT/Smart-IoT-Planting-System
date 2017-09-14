@@ -58,3 +58,16 @@ if __name__=='__main__':
   tempValue = DQ.read_temp()
  ###reference end###
  """
+"""
+Waiting for LoRa message from gateway.
+from pyb import UART
+u4 = UART(4,9600)  
+u4.init(9600, bits=8, parity=None, stop=1)  
+while True:
+    if(u4.any() > 0):
+        print('reading....')
+        receive = u4.read()
+        print(receive)
+        u4.write(receive)	
+  
+"""
