@@ -19,7 +19,8 @@
 #VCC
 #GND
 #ADO(ADDR/address) <--> GND
-import smbus
+
+from pyb import I2C
 import time
 
 # Define some constants from the datasheet
@@ -46,8 +47,11 @@ ONE_TIME_HIGH_RES_MODE_2 = 0x21
 # Device is automatically set to Power Down after measurement.
 ONE_TIME_LOW_RES_MODE = 0x23
 
-#bus = smbus.SMBus(0) # Rev 1 Pi uses 0
-bus = smbus.SMBus(1)  # Rev 2 Pi uses 1
+
+i2c = I2C(1, I2C.MASTER)             # create and init as a master
+
+#i2c.is_ready(0x23)           # check if slave 0x23 is ready
+#i2c.scan()                   # scan for slaves on the bus, returning
 
 def convertToNumber(data):
   # Simple function to convert 2 bytes of data
@@ -56,7 +60,10 @@ def convertToNumber(data):
 
 def readLight(addr=DEVICE):
 #  data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE_1)
-  data = bus.read_i2c_block_data(addr,CONTINUOUS_HIGH_RES_MODE_1)
+  i2c.send(CONTINUOUS_HIGH_RES_MODE_1, DEVICE) 
+  data = i2c.mem_read(3, DEVICE, 2) # read 3 bytes from memory of slave 0x23, tarting at address 2 in the slave
   print data
   print data[1]
   print data[2]
+  print data[3]
+  return convertToNumber(data)
