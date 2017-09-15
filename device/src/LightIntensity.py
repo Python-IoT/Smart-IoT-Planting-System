@@ -61,6 +61,7 @@ def convertToNumber(data):
 def readLight(addr=DEVICE):
 #  data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE_1)
   i2c.send(CONTINUOUS_HIGH_RES_MODE_1, DEVICE) 
+  time.sleep(0.2)  #Waiting for the sensor data
   data = i2c.mem_read(3, DEVICE, 2) # read 3 bytes from memory of slave 0x23, tarting at address 2 in the slave
   print data
   print data[1]
