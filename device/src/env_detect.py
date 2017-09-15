@@ -1,4 +1,17 @@
-#!/usr/bin/env python
+#--------------------------------------
+#    ____     ____
+#   / __/__  / __/
+#  _\ \/ _ \_\ \
+# /___/ .__/___/
+#    /_/
+#
+#           dev_detect.py
+#  Environment detection.
+#
+# Author : Arvin
+# Date   : 15/09/2017
+#--------------------------------------
+
 #Weather station.
 #detect environment information from several sensors:
 #water leverl, air humity, raining, air temperature, light sensitivity.
