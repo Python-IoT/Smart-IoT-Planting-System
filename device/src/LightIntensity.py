@@ -1,3 +1,16 @@
+#--------------------------------------
+#    ___ _      ____
+#   / __(_)__  / __/
+#  _\ \/ / _ \_\ \
+# /___/_/ .__/___/
+#      /_/
+#
+#           LightIntensity.py
+#  Get light intensity data from GY-30 module which is base on bh1750 sensor.
+#
+# Author : Arvin
+# Date   : 15/09/2017
+#--------------------------------------
 import smbus
 import time
 
