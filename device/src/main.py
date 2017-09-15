@@ -22,7 +22,7 @@ tim1.callback(lambda t: pyb.LED(1).toggle())
 if __name__=='__main__':
   while True:
     print('Smart IoT Plant System-Device')
-    print LightIntensity.readLight()
+    print(LightIntensity.readLight())
     time.sleep(2)
 
  
