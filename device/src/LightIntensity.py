@@ -63,8 +63,8 @@ def readLight(addr=DEVICE):
   i2c.send(CONTINUOUS_HIGH_RES_MODE_1, DEVICE) 
   time.sleep(0.2)  #Waiting for the sensor data
   data = i2c.mem_read(3, DEVICE, 2) # read 3 bytes from memory of slave 0x23, tarting at address 2 in the slave
-  print data
-  print data[1]
-  print data[2]
-  print data[3]
+  print(data)
+  print(data[1])
+  print(data[2])
+  print(data[3])
   return convertToNumber(data)
