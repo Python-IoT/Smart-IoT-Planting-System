@@ -11,12 +11,20 @@
 # Author : Arvin
 # Date   : 15/09/2017
 #--------------------------------------
+
+#Wiring method between TPYBoard and GY-30 module.
+#Light intensity sensor(GY-30) <--> I2C(1)
+#SDA <--> X10
+#SCL <--> X9
+#VCC
+#GND
+#ADO(ADDR/address) <--> GND
 import smbus
 import time
 
 # Define some constants from the datasheet
 
-DEVICE     = 0x5c # Default device I2C address
+DEVICE     = 0x23 # The value is 0x23 if GY-30's ADO(ADDR) pin is connected to GND, value is 0x5c while VCC.
 
 POWER_DOWN = 0x00 # No active state
 POWER_ON   = 0x01 # Power on
