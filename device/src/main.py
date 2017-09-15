@@ -5,6 +5,10 @@ from pyb import Pin
 from pyb import Timer
 import micropython
 
+#Import light intensity needed module 
+import LightIntensity
+import time
+
 micropython.alloc_emergency_exception_buf(100)
 
 print('pin init')
@@ -15,9 +19,14 @@ Pin('Y9',Pin.OUT_PP).high() #VCC
 tim1 = Timer(1, freq=1)
 tim1.callback(lambda t: pyb.LED(1).toggle())
  
-print('Smart IoT Plant System-Device')
+if __name__=='__main__':
+  while True:
+    print('Smart IoT Plant System-Device')
+    print LightIntensity.readLight()
+    time.sleep(2)
 
-#send on-line message to gateway to notifiy and obtain own data from gateway's database
+ 
+ #send on-line message to gateway to notifiy and obtain own data from gateway's database
 
   
 ###reference begin###
