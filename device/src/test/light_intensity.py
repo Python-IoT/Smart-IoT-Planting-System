@@ -1,5 +1,5 @@
 #This scripyt is used to test module LightIntensity.
-#Obtain light intensity data from sensor GY-30 and display it.
+#Obtain light intensity data from sensor GY-30 and print it out.
 import py
 
 #Import light intensity needed module 
