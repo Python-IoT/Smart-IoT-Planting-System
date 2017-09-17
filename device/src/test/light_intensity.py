@@ -10,4 +10,4 @@ print('light intensity module test')
 if __name__=='__main__':
   while True:
     print(LightIntensity.readLight())
-
+    time.sleep(2)
