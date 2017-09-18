@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # LoRa_test.py
 #Communication module: LoRa.
 #Communication method with device via LoRa.
@@ -16,7 +17,6 @@
 #Install pyserial:
 #pip install pyserial
 
-#!/usr/bin/env python
 import serial  
 import time  
 pyserial_test = serial.Serial("/dev/ttyS0", 115200)  
