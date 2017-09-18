@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 #    LoRa.py
 #Communication module: LoRa.
 #Communication method with device via LoRa.
@@ -23,7 +24,6 @@
 #Would you like the serial port hardware to be enabled?     Choose Yes.
 #ttyS0 appear in /dev
 
-#!/usr/bin/env python
 import serial  
 import time  
 pyserial_test = serial.Serial("/dev/ttyS0", 115200)  
