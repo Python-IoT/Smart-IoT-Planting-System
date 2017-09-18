@@ -14,7 +14,14 @@
 #GND
 
 #Install pyserial:
-#pip install pyserial
+#pip install pyserial    #Python2
+#pip3 install pyserial   #Python3
+
+#Config UART port in raspberryPi:
+#$ raspi-config
+#Would you like a login shell to be accessible over serial? Choose No.
+#Would you like the serial port hardware to be enabled?     Choose Yes.
+#ttyS0 appear in /dev
 
 #!/usr/bin/env python
 import serial  
