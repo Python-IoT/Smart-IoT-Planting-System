@@ -13,6 +13,9 @@
 #VCC
 #GND
 
+#Install pyserial:
+#pip install pyserial
+
 #!/usr/bin/env python
 import serial  
 import time  
