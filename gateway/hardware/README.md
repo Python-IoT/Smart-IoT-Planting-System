@@ -4,4 +4,5 @@ The default Python version is 2.7.9, we need to upgrade it to 3.5 as to support 
 Gateway hardware list:
 - Raspberry Pi 3B
 - LoRa module(E32-TTL-100)
+- 2G module(M6220)
 
