@@ -1,5 +1,5 @@
 
-Device is the end point, it consists of several features and modules.
+ is the end point, it consists of several features and modules.
 
 Hardware modules include:
 - mcu: stm32
