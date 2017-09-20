@@ -14,6 +14,8 @@
 #VCC
 #GND
 
+#Communication mode is 0, need to set M0 and M1 to 0.
+
 #JSON data format:
 #{ID:123,CMD:heartbeat,DATA:hello,SEQUENCE:123}
 from pyb import UART  
