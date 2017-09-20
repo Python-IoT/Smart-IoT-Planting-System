@@ -5,11 +5,12 @@
 #Parse JSON between device and gateway via LoRa channel.
 #LoRa module: E32-TTL-100
 #Pin specification:
-#M0    <--> GPIO(OUT)     #mode setting
-#M1    <--> GPIO(OUT)     #mode setting
-#RXD   <--> X1(TX)        #UART4
-#TXD   <--> X2(RX)        #UART4
-#AUX   <--> GPIO/INT(IN)  #module status detecting
+#Module         MCU
+#M0(IN)    <--> GPIO(OUT)     #mode setting, can not hang
+#M1(IN)    <--> GPIO(OUT)     #mode setting, can not hang
+#RXD(IN)   <--> X1(TX)(OUT)   #UART4
+#TXD(OUT)  <--> X2(RX)(IN)    #UART4
+#AUX(OUT)  <--> GPIO/INT(IN)  #module status detecting
 #VCC
 #GND
 
