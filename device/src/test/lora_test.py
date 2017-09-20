@@ -22,13 +22,8 @@
 from pyb import Pin
 from pyb import UART  
 
-#GPIO input demo
-#p_in = Pin('X2', Pin.IN, Pin.PULL_UP)
-#p_in.value() # get value, 0 or 1
-
 M0 = Pin('X3', Pin.OUT_PP)
 M1 = Pin('X4', Pin.OUT_PP)
-#M0.high()
 M0.low()
 M1.low()
 
@@ -41,3 +36,5 @@ u4.write('{ID:1,CMD:C,DATA:hello,SEQ:1}')
 #GPIO input demo
 #p_in = Pin('X2', Pin.IN, Pin.PULL_UP)
 #p_in.value() # get value, 0 or 1
+#M0.high()
+
