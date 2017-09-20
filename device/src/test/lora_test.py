@@ -38,4 +38,5 @@ u4.write('{ID:1,CMD:C,DATA:hello,SEQ:1}')
 #p_in.value() # get value, 0 or 1
 #M0.high()
 #u4.read()
+#u4.any() #check the data in UART buffer
 
