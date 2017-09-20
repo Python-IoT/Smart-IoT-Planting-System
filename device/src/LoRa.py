@@ -13,6 +13,8 @@
 #VCC
 #GND
 
+#JSON data format:
+#{ID:123,CMD:heartbeat,DATA:hello,SEQUENCE:123}
 from pyb import UART  
 u4 = UART(4,115200)  
 u4.init(115200, bits=8, parity=None, stop=1)  
