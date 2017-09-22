@@ -22,6 +22,7 @@
 from pyb import Pin
 from pyb import UART  
 from pyb import Timer
+import time
 
 #LED shining regularly(using timer) to indicate the program is running correctly
 tim1 = Timer(1, freq=1)
