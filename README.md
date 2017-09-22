@@ -26,3 +26,4 @@ Smart IoT Planting System is a intelligence planting project consist of sensors,
 
 ## Smartphone UI:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/app_ui.jpg)
+
