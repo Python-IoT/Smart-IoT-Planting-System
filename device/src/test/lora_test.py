@@ -21,6 +21,11 @@
 
 from pyb import Pin
 from pyb import UART  
+from pyb import Timer
+
+#LED shining regularly(using timer) to indicate the program is running correctly
+tim1 = Timer(1, freq=1)
+tim1.callback(lambda t: pyb.LED(1).toggle())
 
 M0 = Pin('X3', Pin.OUT_PP)
 M1 = Pin('X4', Pin.OUT_PP)
@@ -31,7 +36,12 @@ u4 = UART(4,9600)
 u4.init(9600, bits=8, parity=None, stop=1)  
 u4.write('{ID:1,CMD:C,DATA:hello,SEQ:1}')
 
-
+if __name__=='__main__':
+  while True:
+    u4.write('{ID:1,CMD:HEARTBEAT,DATA:TPYBoard1,SEQ:1}')
+    time.sleep(1)
+    print(u4.read())
+    time.sleep(2)
 
 #GPIO input demo
 #p_in = Pin('X2', Pin.IN, Pin.PULL_UP)
