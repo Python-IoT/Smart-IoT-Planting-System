@@ -29,7 +29,7 @@ def main():
             recv = pyserial_test.read(count)
             print('recv:')
             print(recv)
-            response = "gateway return "+pyserial_test.read(count)+"\n"
+            response = "GW resp "+pyserial_test.read(count)+"\n"
             pyserial_test.write(response)
         pyserial_test.flushInput()
         time.sleep(0.1)
