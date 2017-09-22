@@ -17,21 +17,27 @@
 #Install pyserial:
 #pip install pyserial
 
-import serial  
-import time  
-pyserial_test = serial.Serial("/dev/ttyS0", 115200)  
-def main():  
-    while True:  
-        count = pyserial_test.inWaiting()  
-        if count != 0:  
-            recv = "pi return: "+pyserial_test.read(count)+"\n"  
-            pyserial_test.write(recv)  
-        pyserial_test.flushInput()  
-        time.sleep(0.1)  
-  
-if __name__ == '__main__':  
-    try:  
-        main()  
-    except KeyboardInterrupt:  
-        if pyserial_test != None:  
-            pyserial_test.close()  
+import serial
+import time
+pyserial_test = serial.Serial("/dev/ttyS0", 9600)
+def main():
+    while True:
+        #print('inWaiting')
+        count = pyserial_test.inWaiting()
+        #print('after inWaiting')
+        if count != 0:
+            recv = pyserial_test.read(count)
+            print('recv:')
+            print(recv)
+            response = "gateway return "+pyserial_test.read(count)+"\n"
+            pyserial_test.write(response)
+        pyserial_test.flushInput()
+        time.sleep(0.1)
+
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        if pyserial_test != None:
+            pyserial_test.close()
+
