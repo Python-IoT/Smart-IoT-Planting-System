@@ -35,7 +35,7 @@ M1.low()
 
 u4 = UART(4,9600)  
 u4.init(9600, bits=8, parity=None, stop=1)  
-u4.write('{ID:1,CMD:C,DATA:hello,SEQ:1}')
+u4.write('{ID:1,CMD:OnLine,DATA:TYPBoard1,SEQ:0}')
 
 if __name__=='__main__':
   while True:
