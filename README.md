@@ -1,4 +1,4 @@
-# Smart-IoT-Planting-System
+# (SIPS)Smart-IoT-Planting-System
 Smart IoT Planting System is an intelligence/smart/automatic planting project consist of sensors,actuator,LoRa,gateway,cloud.  
 ## Features:
 - device(node and gateway) management(device battery, device watchdog reboot log, gateway CPU, on-line status)
