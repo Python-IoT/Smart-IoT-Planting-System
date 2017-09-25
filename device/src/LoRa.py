@@ -24,10 +24,3 @@ u4.init(115200, bits=8, parity=None, stop=1)
 def Send(data):
   u4.write(data)
 
-#update record
-#update record
-#update record
-#update record
-#update record
-#update record
-#update record
