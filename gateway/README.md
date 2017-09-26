@@ -5,3 +5,4 @@ Gateway will respond to device with device's relevant data(light on/off, waterin
 post record
 post record
 post record
+post record
