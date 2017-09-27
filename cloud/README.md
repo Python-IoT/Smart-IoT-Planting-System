@@ -6,3 +6,7 @@ Features include:
 - data visualization(echars python, environment data from sensor, plant grow status, alarm record)
 - data storage(store data in MySQL)
 - user interface(web browser for PC, tablets, phone based on bootstrap)
+
+
+
+commit test
