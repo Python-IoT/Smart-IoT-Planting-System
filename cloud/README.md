@@ -8,11 +8,3 @@ Features include:
 - user interface(web browser for PC, tablets, phone based on bootstrap)
 
 
-
-commit test
-commit test
-commit test
-commit test
-commit test
-commit test
-commit test
