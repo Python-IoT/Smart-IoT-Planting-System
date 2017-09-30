@@ -1,4 +1,4 @@
-#    lora_test.py
+#    lora_test_send.py
 #Communication module: LoRa.
 #Communication method with gateway via LoRa.
 #Uart port drive LoRa module.
