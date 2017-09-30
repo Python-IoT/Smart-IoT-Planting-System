@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# LoRa_test.py
+# LoRa_test_recv.py
 #Communication module: LoRa.
 #Communication method with device via LoRa.
 #Uart port drive LoRa module.
