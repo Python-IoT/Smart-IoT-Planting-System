@@ -24,6 +24,14 @@ ID | CMD | TYPE | VALUE
 ------------ | ------------- | ------------- | -------------
 1 | Online | N | N
 
+- **Heartbeat**   
+Device need to send heartbeat message to gatewat to show it is alive, and send the battery volume to gateway.
+Json string format:    
+
+ID | CMD | TYPE | VALUE
+------------ | ------------- | ------------- | -------------
+1 | Heartbeat | Battery | 80
+
 
 
 
