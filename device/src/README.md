@@ -1,5 +1,5 @@
 Source code repository for end node device.  
-##Function list:  
+## Function list:  
 - **irrigation actuator**   
 When the soil moisture is lower than the standard value, steering engine(simulate the tap) will open to water the plant.
 
@@ -15,7 +15,14 @@ Simulate the bulb with led on TPYBoard, user can control the light via the brows
 - **device management**    
 Device will report it's status(battery, online status) to gateway and cloud platform, if there is something wrong, engineer will repair the device.
 
-##Command list:
+## Command list:
 - **Online**   
 When the device powers on, it need to send 'Online' command to gateway to obtain its data(light/led status[on/off], irrigation status[on/off], environment report rate, etc).
+Json string format:
+|ID       |CMD         |TYPE      |VALUE   |
+|:------: |:----------:|:--------:|:------:|
+| 1       |ONLINE      | N        |N       |
+
+
+
 
