@@ -19,9 +19,9 @@ Device will report it's status(battery, online status) to gateway and cloud plat
 - **Online**   
 When the device powers on, it need to send 'Online' command to gateway to obtain its data(light/led status[on/off], irrigation status[on/off], environment report rate, etc).
 Json string format:    
-ID       |CMD         |TYPE      |VALUE      
-:------: |:----------:|:--------:|:------:    
- 1       |ONLINE      | N        |N          
+ ID     | CMD        | TYPE     | VALUE      
+ ------ | ---------- | -------- | ------   
+ 1      | ONLINE     | N        | N          
 
 
 第一表头 | 第二表头
