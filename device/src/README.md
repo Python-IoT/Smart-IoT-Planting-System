@@ -18,16 +18,23 @@ Device will report it's status(battery, online status) to gateway and cloud plat
 ## Command list:
 - **Online**   
 When the device powers on, it need to send 'Online' command to gateway to obtain its data(light/led status[on/off], irrigation status[on/off], environment report rate, etc).
-Json string format:    
-
+Json string format:  
+Device --> Gateway:
 ID | CMD | TYPE | VALUE
 ------------ | ------------- | ------------- | -------------
 1 | Online | N | N
 
+Gateway --> Device:
+
+ID | CMD | TYPE | VALUE
+------------ | ------------- | ------------- | -------------
+1 | Online | Light | On/Off
+1 | Online | Rate | 10(second)
+
 - **Heartbeat**   
 Device need to send heartbeat message to gatewat to show it is alive, and send the battery volume to gateway.
 Json string format:    
-
+Device --> Gateway:
 ID | CMD | TYPE | VALUE
 ------------ | ------------- | ------------- | -------------
 1 | Heartbeat | Battery | 80
@@ -35,22 +42,32 @@ ID | CMD | TYPE | VALUE
 - **Envionment**   
 Device will conllect sensor data and send them to gateway regularly.
 Json string format:    
-
+Device --> Gateway:
 ID | CMD | TYPE | VALUE
 ------------ | ------------- | ------------- | -------------
 1 | Env | light | 2000
 1 | Env | tempurature | 28
 1 | Env | humility | 61
 1 | Env | water | 20
-1 | Env | raning | 72
+1 | Env | raining | 72
 
 - **Alarm**   
 Device will send alarm message to gateway if motion detection sensor detect people.
 Json string format:    
-
+Device --> Gateway:
 ID | CMD | TYPE | VALUE
 ------------ | ------------- | ------------- | -------------
 1 | Alarm | N | N
+
+- **Light**   
+User can control light via browser on smartphone.
+Json string format:    
+Gateway --> Device:
+ID | CMD | TYPE | VALUE
+------------ | ------------- | ------------- | -------------
+1 | Light | Blue | On/Off
+1 | Light | Yellow | On/Off
+1 | Light | Red | On/Off
 
 
 
