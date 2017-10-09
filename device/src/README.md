@@ -32,6 +32,26 @@ ID | CMD | TYPE | VALUE
 ------------ | ------------- | ------------- | -------------
 1 | Heartbeat | Battery | 80
 
+- **Envionment**   
+Device will conllect sensor data and send them to gateway regularly.
+Json string format:    
+
+ID | CMD | TYPE | VALUE
+------------ | ------------- | ------------- | -------------
+1 | Env | light | 2000
+1 | Env | tempurature | 28
+1 | Env | humility | 61
+1 | Env | water | 20
+1 | Env | raning | 72
+
+- **Alarm**   
+Device will send alarm message to gateway if motion detection sensor detect people.
+Json string format:    
+
+ID | CMD | TYPE | VALUE
+------------ | ------------- | ------------- | -------------
+1 | Alarm | N | N
+
 
 
 
