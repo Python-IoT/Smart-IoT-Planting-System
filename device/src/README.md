@@ -21,7 +21,14 @@ When the device powers on, it need to send 'Online' command to gateway to obtain
 Json string format:    
 |ID       |CMD         |TYPE      |VALUE   |    
 |:------: |:----------:|:--------:|:------:|     
-| 1       |ONLINE      | N        |N       |
+| 1       |ONLINE      | N        |N       |   
+
+
+第一表头 | 第二表头
+------------ | -------------
+第一单元格内容 | 第二单元格内容
+第一列内容 | 第二列内容
+
 
 
 
