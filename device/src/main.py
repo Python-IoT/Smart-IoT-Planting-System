@@ -41,9 +41,8 @@ M1.low()
 u4 = UART(4,9600)  
 u4.init(9600, bits=8, parity=None, stop=1)  
 cmd_online = '{"ID":1, "CMD":Online, "TYPE":"N", "VALUE":"N"}'
+#Read ID value from file sipsNode.inf.
 u4.write(cmd_online)
-
-
 
 #LED shining regularly(using timer) to indicate the program is running correctly
 tim1 = Timer(1, freq=1)
