@@ -24,6 +24,7 @@
 
 import serial
 import time
+import json
 pyserial_test = serial.Serial("/dev/ttyS0", 9600)
 def main():
     while True:
@@ -35,10 +36,14 @@ def main():
             #recv = pyserial_test.readline()
             print('[LoRa]recv:')
             print(recv)
+            json_lora = json.loads(recv)
             #Parse JSON
-            response = '{"ID":1, "CMD":Online, "TYPE":"Light", "VALUE":"On"}'
-            pyserial_test.write(response)
-            pyserial_test.flushInput()
+            if json_lora.get("ID") == 1 : #Device ID-1 existed in gateway database
+              response = '{"ID":1, "CMD":Online, "TYPE":"Light", "VALUE":"On"}'
+              pyserial_test.write(response)
+            else:
+              #init_device()  #Create sqlite table for device 1.
+        pyserial_test.flushInput()
         time.sleep(0.1)
 
 if __name__ == '__main__':
