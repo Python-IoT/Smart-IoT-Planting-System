@@ -32,6 +32,7 @@ def main():
         #print('after inWaiting')
         if count != 0:
             recv = pyserial_test.read(count)
+            #recv = pyserial_test.readline()
             print('[LoRa]recv:')
             print(recv)
             #Parse JSON
