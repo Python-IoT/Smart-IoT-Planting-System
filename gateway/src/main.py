@@ -38,7 +38,7 @@ def main():
             response = '{"ID":1, "CMD":Online, "TYPE":"Light", "VALUE":"On"}'
             pyserial_test.write(response)
             pyserial_test.flushInput()
-        #time.sleep(3)
+        time.sleep(0.1)
 
 if __name__ == '__main__':
     try:
