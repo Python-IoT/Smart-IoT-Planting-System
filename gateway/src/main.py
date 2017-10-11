@@ -32,13 +32,16 @@ def main():
         #Waiting for LoRa module message from uart port.
         count = ser.inWaiting()
         if count != 0:
-            recv = pyserial_test.readline() #readline() need to set timeout, otherwise results block
+            recv = ser.readline() #readline() need to set timeout, otherwise results block
             ser.flushInput()
             print(recv)
-            json_lora = json.loads(recv)
+            json_lora = json.loads('{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}')
             #Parse JSON
-            if json_lora.get("ID") == 1 : #Device ID-1 existed in gateway database
-              response = '{"ID":1, "CMD":Online, "TYPE":"Light", "VALUE":"On"}'
+            #print(json_lora.get("ID"))
+            #print(json_lora["ID"])
+            #if json_lora.get("ID") == '1' : #Device ID-1 existed in gateway database
+            if int(json_lora.get("ID")) == 1 : #Device ID-1 existed in gateway database
+              response = '{"ID":"1", "CMD":"Online", "TYPE":"Light", "VALUE":"On"}'
               ser.write(response)
             else:
               print('init_device')
@@ -49,6 +52,5 @@ if __name__ == '__main__':
     try:
         main()
     except KeyboardInterrupt:
-        if pyserial_test != None:
-            pyserial_test.close()
-
+        if ser != None:
+            ser.close()
