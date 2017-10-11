@@ -55,4 +55,5 @@ if __name__=='__main__':
     #Waiting for the message from UART4 to obtain LoRa data.
     len = u4.any()
     if(len > 0): 
-      print(u4.read())
+      recv = u4.read()
+      print(recv)
