@@ -40,9 +40,10 @@ M1.low()
 #Init uart4 for LoRa module.
 u4 = UART(4,9600)  
 u4.init(9600, bits=8, parity=None, stop=1)  
-cmd_online = '{"ID":1, "CMD":Online, "TYPE":"N", "VALUE":"N"}'
-#Read ID value from file sipsNode.inf.
+cmd_online = '{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}\n'
 u4.write(cmd_online)
+
+
 
 #LED shining regularly(using timer) to indicate the program is running correctly
 tim1 = Timer(1, freq=1)
@@ -54,5 +55,3 @@ if __name__=='__main__':
     len = u4.any()
     if(len > 0): 
       print(u4.read())
-
- 
