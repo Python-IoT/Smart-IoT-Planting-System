@@ -25,14 +25,15 @@
 import serial
 import time
 import json
-pyserial_test = serial.Serial("/dev/ttyS0", 9600)
+#ser  = serial.Serial("/dev/ttyS0", 9600)
+ser  = serial.Serial("/dev/ttyS0", 9600, timeout=0.2)
 def main():
     while True:
         #Waiting for LoRa module message from uart port.
-        count = pyserial_test.inWaiting()
+        count = ser.inWaiting()
         #print('after inWaiting')
         if count != 0:
-            recv = pyserial_test.read(count)
+            recv = ser.read(count)
             #recv = pyserial_test.readline()
             print('[LoRa]recv:')
             print(recv)
@@ -40,10 +41,10 @@ def main():
             #Parse JSON
             if json_lora.get("ID") == 1 : #Device ID-1 existed in gateway database
               response = '{"ID":1, "CMD":Online, "TYPE":"Light", "VALUE":"On"}'
-              pyserial_test.write(response)
+              ser.write(response)
             else:
               #init_device()  #Create sqlite table for device 1.
-        pyserial_test.flushInput()
+        ser.flushInput()
         time.sleep(0.1)
 
 if __name__ == '__main__':
