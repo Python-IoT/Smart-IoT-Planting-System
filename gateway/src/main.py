@@ -35,7 +35,7 @@ def main():
             recv = ser.readline() #readline() need to set timeout, otherwise results block
             ser.flushInput()
             print(recv)
-            json_lora = json.loads('{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}')
+            json_lora = json.loads(recv)
             #Parse JSON
             #print(json_lora.get("ID"))
             #print(json_lora["ID"])
