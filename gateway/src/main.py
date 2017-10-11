@@ -33,6 +33,7 @@ def main():
         count = ser.inWaiting()
         if count != 0:
             recv = pyserial_test.readline() #readline() need to set timeout, otherwise results block
+            ser.flushInput()
             print(recv)
             json_lora = json.loads(recv)
             #Parse JSON
@@ -40,8 +41,8 @@ def main():
               response = '{"ID":1, "CMD":Online, "TYPE":"Light", "VALUE":"On"}'
               ser.write(response)
             else:
+              print('init_device')
               #init_device()  #Create sqlite table for device 1.
-        ser.flushInput()
         time.sleep(0.1)
 
 if __name__ == '__main__':
