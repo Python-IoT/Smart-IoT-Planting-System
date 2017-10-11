@@ -25,6 +25,7 @@ import micropython
 #Import light intensity needed module 
 import LightIntensity
 import time
+import json
 
 micropython.alloc_emergency_exception_buf(100)
 
