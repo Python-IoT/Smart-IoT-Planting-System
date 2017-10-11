@@ -31,11 +31,8 @@ def main():
     while True:
         #Waiting for LoRa module message from uart port.
         count = ser.inWaiting()
-        #print('after inWaiting')
         if count != 0:
-            recv = ser.read(count)
-            #recv = pyserial_test.readline()
-            print('[LoRa]recv:')
+            recv = pyserial_test.readline() #readline() need to set timeout, otherwise results block
             print(recv)
             json_lora = json.loads(recv)
             #Parse JSON
