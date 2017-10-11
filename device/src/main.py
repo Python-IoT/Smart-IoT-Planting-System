@@ -57,3 +57,6 @@ if __name__=='__main__':
     if(len > 0): 
       recv = u4.read()
       print(recv)
+      json_lora = json.loads(recv)
+      #Parse JSON from gateway.
+      #json_lora.get("ID")) 
