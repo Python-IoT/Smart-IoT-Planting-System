@@ -48,7 +48,7 @@ u4.write(cmd_online)
 tim1 = Timer(1, freq=1)
 tim1.callback(lambda t: pyb.LED(1).toggle())
 
-print(LightIntensity.readLight())
+#print(LightIntensity.readLight())
  
 #Read the light intensity value from sensor regularly.
 tim1 = Timer(2, freq=5)
