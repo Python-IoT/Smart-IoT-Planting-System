@@ -61,7 +61,7 @@ tim1.callback(getLightInten())
 
 print(LightIntensity.readLight())
 '''
-if __name__=='__main__'
+if __name__=='__main__':
   while True:
     #Waiting for the message from UART4 to obtain LoRa data.
     len = u4.any()
