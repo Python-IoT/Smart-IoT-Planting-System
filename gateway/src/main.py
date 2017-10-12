@@ -41,7 +41,7 @@ def main():
             #print(json_lora["ID"])
             #if json_lora.get("ID") == '1' : #Device ID-1 existed in gateway database
             if int(json_lora.get("ID")) == 1 : #Device ID-1 existed in gateway database
-              response = '{"ID":"1", "CMD":"Online", "TYPE":"Light", "VALUE":"On"}'
+              response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
               ser.write(response)
             else:
               print('init_device')
