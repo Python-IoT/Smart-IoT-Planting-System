@@ -52,10 +52,13 @@ tim1.callback(lambda t: pyb.LED(1).toggle())
 #Read the light intensity value from sensor regularly.
 
 lightVlaue = 0
+#time2 callback function, obtain value from light intensity sensor and send it to gateway via LoRa module.
 def getLightInten():
-  global lightVlaue
-  lightVlaue = LightIntensity.readLight()
-  print(lightVlaue)
+  global lightValue
+  lightValue = LightIntensity.readLight()
+  #print(lightValue)
+  u4.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
+	
 tim2 = Timer(2, freq=1)
 tim2.callback(getLightInten())
 
