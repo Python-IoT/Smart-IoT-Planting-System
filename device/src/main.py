@@ -48,12 +48,20 @@ u4.write(cmd_online)
 tim1 = Timer(1, freq=1)
 tim1.callback(lambda t: pyb.LED(1).toggle())
 
-#print(LightIntensity.readLight())
  
 #Read the light intensity value from sensor regularly.
-tim1 = Timer(2, freq=5)
-tim1.callback(lambda t: print(LightIntensity.readLight()))
-if __name__=='__main__':
+'''
+lightVlaue = 0
+def getLightInten():
+    global lightVlaue
+	lightVlaue = LightIntensity.readLight()
+
+tim1 = Timer(2, freq=1)
+tim1.callback(getLightInten())
+
+print(LightIntensity.readLight())
+'''
+if __name__=='__main__'
   while True:
     #Waiting for the message from UART4 to obtain LoRa data.
     len = u4.any()
@@ -67,3 +75,10 @@ if __name__=='__main__':
         pyb.LED(2).on()
        else:
         pyb.LED(2).off()
+		
+	print(LightIntensity.readLight())
+	'''	
+	if lightVlaue > 0:
+	  print(lightVlaue)
+	  lightVlaue = 0
+	  '''
