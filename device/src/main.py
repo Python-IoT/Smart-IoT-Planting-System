@@ -58,4 +58,9 @@ if __name__=='__main__':
       print(recv)
       json_lora = json.loads(recv)
       #Parse JSON from gateway.
-      #json_lora.get("ID")) 
+      if (json_lora.get("CMD")) == 'Online' and json_lora.get("TYPE")) == 'Light2' ):
+       if json_lora.get("VALUE")) == 'On':
+        pyb.LED(2).On()
+       else:
+        pyb.LED(2).Off()
+       
