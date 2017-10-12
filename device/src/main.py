@@ -29,7 +29,6 @@ import json
 
 micropython.alloc_emergency_exception_buf(100)
 
-print('pin init')
 Pin('Y11',Pin.OUT_PP).low() #GND
 Pin('Y9',Pin.OUT_PP).high() #VCC
 
