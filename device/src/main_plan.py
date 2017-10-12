@@ -21,7 +21,7 @@ from pyb import Pin
 from pyb import Timer
 from pyb import UART  
 import micropython
-
+import irrigate
 #Import light intensity needed module 
 import LightIntensity
 import time
@@ -80,10 +80,14 @@ if __name__=='__main__':
       print(recv)
       json_lora = json.loads(recv)
       #Parse JSON from gateway.
-      if (json_lora.get("CMD") == 'Online' and json_lora.get("TYPE") == 'Light2' ):
+      if (json_lora.get("CMD") == 'Online' and json_lora.get("TYPE") == 'Light2' ): #Control the light(led on TPYBoard)
         if json_lora.get("VALUE") == 'On':
           pyb.LED(2).on()
         else:
           pyb.LED(2).off()
-		
+      elif json_lora.get("CMD") == 'irrigate': # irrigate the plants
+        if json_lora.get("VALUE") == 'Open':
+          irrigate.irrigate_start()
+        else:
+          irrigate.irrigate_stop()
 	#print(LightIntensity.readLight())
