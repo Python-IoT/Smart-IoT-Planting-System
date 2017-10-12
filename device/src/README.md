@@ -83,6 +83,17 @@ ID | CMD | TYPE | VALUE
 1 | Light | Red | On/Off
 
 
+- **Irrigate**   
+User can open water tap to irrigate plants via browser on smartphone.   
+Json string format:    
+Gateway --> Device:
+
+ID | CMD | TYPE | VALUE
+------------ | ------------- | ------------- | -------------
+1 | irrigate | Open/Close | 100(minute, 0 means constently)
+
+
+
 
 
 
