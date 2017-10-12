@@ -41,8 +41,14 @@ def main():
             #print(json_lora["ID"])
             #if json_lora.get("ID") == '1' : #Device ID-1 existed in gateway database
             if int(json_lora.get("ID")) == 1 : #Device ID-1 existed in gateway database
-              response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
-              ser.write(response)
+              if json_lora.get("CMD") == 'Online'
+                response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
+                ser.write(response)
+              elif json_lora.get("CMD") == 'Env':
+                if json_lora.get("TYPE") == 'moisture':
+                  if int(json_lora.get("VALUE")) < 200 # soil moisture is lower than standard
+                    response = '{"ID":"1", "CMD":"irrigate", "TYPE":"Open", "VALUE":"100"}'
+                    ser.write(response)
             else:
               print('init_device')
               #init_device()  #Create sqlite table for device 1.
