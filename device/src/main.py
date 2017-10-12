@@ -53,8 +53,9 @@ tim1.callback(lambda t: pyb.LED(1).toggle())
 
 lightVlaue = 0
 def getLightInten():
-    global lightVlaue
-    lightVlaue = LightIntensity.readLight()
+  global lightVlaue
+  lightVlaue = LightIntensity.readLight()
+  print(lightVlaue)
 tim2 = Timer(2, freq=1)
 tim2.callback(getLightInten())
 
@@ -68,14 +69,10 @@ if __name__=='__main__':
       json_lora = json.loads(recv)
       #Parse JSON from gateway.
       if (json_lora.get("CMD") == 'Online' and json_lora.get("TYPE") == 'Light2' ):
-       if json_lora.get("VALUE") == 'On':
-        pyb.LED(2).on()
-       else:
-        pyb.LED(2).off()
+        if json_lora.get("VALUE") == 'On':
+          pyb.LED(2).on()
+        else:
+          pyb.LED(2).off()
 		
 	#print(LightIntensity.readLight())
 	
-	if lightVlaue > 0:
-	  print(lightVlaue)
-	  lightVlaue = 0
-	  
