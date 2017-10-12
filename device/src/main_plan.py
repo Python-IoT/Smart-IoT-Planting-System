@@ -59,6 +59,15 @@ def getLightInten():
   #print(lightValue)
   u4.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
 	
+'''
+#Get soil moisture and send it to gateway, if the current value is lower than standard, gateway
+#will send 'irrigate' command to device, device will control steering engine to open the tap and water the plants.
+def moisture():
+  global moisture
+  moisture = moisture.readMoisture()
+  u4.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"+moisture+"}\n')
+'''	
+
 tim2 = Timer(2, freq=1)
 tim2.callback(getLightInten())
 
