@@ -1,7 +1,8 @@
 #soil moisture sensor.
-#VCC, GND, AO, DO
-#DO <--> GPIO(Y12)
-#AO <--> ADC Port(Y11)
+#VCC 
+#GND
+#DO <--> GPIO(Y12)  Digital data
+#AO <--> ADC Port(Y11) Analog data
 #if value is low than defined data, DO value is 0, 
 #if value is high than defined data, DO value is 1.
 #AO is the specific value.
@@ -12,4 +13,16 @@ p_in.value
 
 adc = pyb.ADC(Pin('Y11'))       # create an analog object from a pin
 adc = pyb.ADC(pyb.Pin.board.Y11)
-val = adc.read()                # read an analog value
+# read an analog value
+def getMoisAo:
+  Ao = adc.read()                
+  print('moisture Ao:')
+  print(Ao)
+  return Ao
+
+# read an digital value
+def getMoisDo:
+  Do = p_in.value             
+  print('moisture Do:')
+  print(Do)
+  return Do
