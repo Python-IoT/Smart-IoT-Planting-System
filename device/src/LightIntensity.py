@@ -56,7 +56,8 @@ i2c = I2C(1, I2C.MASTER)             # create and init as a master
 def convertToNumber(data):
   # Simple function to convert 2 bytes of data
   # into a decimal number
-  return ((data[1] + (256 * data[0])) / 1.2)
+  #return ((data[1] + (256 * data[0])) / 1.2)
+  return int(((data[1] + (256 * data[0])) / 1.2))
 
 def readLight(addr=DEVICE):
 #  data = bus.read_i2c_block_data(addr,ONE_TIME_HIGH_RES_MODE_1)
