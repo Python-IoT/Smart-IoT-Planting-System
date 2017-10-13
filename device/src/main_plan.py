@@ -58,6 +58,7 @@ def getLightInten():
   lightValue = LightIntensity.readLight()
   #print(lightValue)
   lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
+  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')
 	
 '''
 #Get soil moisture and send it to gateway, if the current value is lower than standard, gateway
@@ -65,7 +66,7 @@ def getLightInten():
 def moisture():
   global moisture
   moisture = moisture.readMoisture()
-  u4.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"+moisture+"}\n')
+  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"+moisture+"}\n')
 '''	
 
 tim2 = Timer(2, freq=1)
