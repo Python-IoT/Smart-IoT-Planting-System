@@ -43,7 +43,7 @@ lora_uart.init(9600, bits=8, parity=None, stop=1)
 #Send Online command to gateway while it power on to obtain its status data from gateway's database.
 #lora_uart.write('{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}\n')
 #time.sleep(1)
-lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')	
+#lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')	
 #LED shining regularly(using timer) to indicate the program is running correctly
 tim1 = Timer(1, freq=1)
 tim1.callback(lambda t: pyb.LED(1).toggle())
@@ -75,6 +75,19 @@ def moisture():
 
 if __name__=='__main__':
   while True:
+    print('LightIntensity:')
+    lightValue = LightIntensity.readLight()
+    print(lightValue)
+    
+    if lightValue > 1000:
+      irrigate.irrigate_start() 
+    else:
+      irrigate.irrigate_stop()
+    
+    time.sleep(3)
+	
+	
+'''
     #Waiting for the message from UART4 to obtain LoRa data.
     len = lora_uart.any()
     if(len > 0): 
@@ -94,4 +107,4 @@ if __name__=='__main__':
           irrigate.irrigate_start()
         else:
           irrigate.irrigate_stop()
-	#print(LightIntensity.readLight())
+'''	
