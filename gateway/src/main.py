@@ -40,13 +40,13 @@ def main():
             #print(json_lora.get("ID"))
             #print(json_lora["ID"])
             #if json_lora.get("ID") == '1' : #Device ID-1 existed in gateway database
-            if int(json_lora.get("ID")) == 1 : #Device ID-1 existed in gateway database
-              if json_lora.get("CMD") == 'Online'
+            if int(json_lora.get("ID")) == 1: #Device ID-1 existed in gateway database
+              if json_lora.get("CMD") == 'Online':
                 response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
                 ser.write(response)
               elif json_lora.get("CMD") == 'Env':
                 if json_lora.get("TYPE") == 'moisture':
-                  if int(json_lora.get("VALUE")) < 200 # soil moisture is lower than standard
+                  if int(json_lora.get("VALUE")) < 200: # soil moisture is lower than standard
                     response = '{"ID":"1", "CMD":"irrigate", "TYPE":"Open", "VALUE":"100"}'
                     ser.write(response)
             else:
