@@ -57,6 +57,7 @@ def convertToNumber(data):
   # Simple function to convert 2 bytes of data
   # into a decimal number
   #return ((data[1] + (256 * data[0])) / 1.2)
+  #convert float to int
   return int(((data[1] + (256 * data[0])) / 1.2))
 
 def readLight(addr=DEVICE):
