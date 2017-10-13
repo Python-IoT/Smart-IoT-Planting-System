@@ -1,110 +1,62 @@
-#This is the file executing while STM32 MCU bootup, and in this file,  
-#it will call other functions to fullfill the project.
+#!/usr/bin/env python
+#Communicate with end devices via LoRa.
+#Communicate with server via MQTT(hbmqtt) and HTTP POST.
+#Save data in the sqlite database.
+#Parse JSON from MQTT and LoRa protocol.
+
 #Communication module: LoRa.
-#Communication method with gateway via LoRa.
+#Communication method with device via LoRa.
 #Uart port drive LoRa module.
 #Parse JSON between device and gateway via LoRa channel.
 #LoRa module: E32-TTL-100
 #Pin specification:
-#Module         MCU
-#M0(IN)    <--> GPIO(Y3)(OUT)     #mode setting, can not hang
-#M1(IN)    <--> GPIO(Y4)(OUT)     #mode setting, can not hang
-#RXD(IN)   <--> Y1(TX)(OUT)   #UART6
-#TXD(OUT)  <--> Y2(RX)(IN)    #UART6
-#AUX(OUT)  <--> GPIO/INT(IN)  #module status detecting
+#M0    <--> GPIO(OUT)     #mode setting  connct to GND is OK!(Low)
+#M1    <--> GPIO(OUT)     #mode setting  connct to GND is OK!(Low)
+#RXD   <--> 8(TXD)        #ttyS0
+#TXD   <--> 10(RXD)       #ttyS0
+#AUX   <--> GPIO/INT(IN)  #module status detecting
 #VCC
 #GND
-#Communication mode is 0, need to set M0 and M1 to 0.
 
-import pyb
-from pyb import Pin
-from pyb import Timer
-from pyb import UART  
-import micropython
-import irrigate
-#Import light intensity needed module 
-import LightIntensity
+#You need to install pyserial manually, install command is below:
+#pip install pyserial
+
+import serial
 import time
 import json
+#ser  = serial.Serial("/dev/ttyS0", 9600)
+ser  = serial.Serial("/dev/ttyS0", 9600, timeout=0.2)
+def main():
+    while True:
+        #Waiting for LoRa module message from uart port.
+        count = ser.inWaiting()
+        if count != 0:
+            recv = ser.readline() #readline() need to set timeout, otherwise results block
+            ser.flushInput()
+            print(recv)
+            json_lora = json.loads(recv)
+            #Parse JSON
+            #print(json_lora.get("ID"))
+            #print(json_lora["ID"])
+            #if json_lora.get("ID") == '1' : #Device ID-1 existed in gateway database
+            if int(json_lora.get("ID")) == 1 : #Device ID-1 existed in gateway database
+              if json_lora.get("CMD") == 'Online':
+                response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
+                print(response)
+                ser.write(response)
+              elif json_lora.get("CMD") == 'Env':
+                if json_lora.get("TYPE") == 'moisture':
+                  if int(json_lora.get("VALUE")) < 2000: # soil moisture is lower than standard
+                    response = '{"ID":"1", "CMD":"irrigate", "TYPE":"Open", "VALUE":"100"}'
+                    ser.write(response)
+            else:
+              print('init_device')
+              #init_device()  #Create sqlite table for device 1.
+        time.sleep(0.1)
 
-micropython.alloc_emergency_exception_buf(100)
-
-Pin('Y11',Pin.OUT_PP).low() #GND
-Pin('Y9',Pin.OUT_PP).high() #VCC
-
-#Set LoRa module with mode-0.
-M0 = Pin('Y3', Pin.OUT_PP)
-M1 = Pin('Y4', Pin.OUT_PP)
-M0.low()
-M1.low()
-#Init uart4 for LoRa module.
-lora_uart = UART(6,9600)  
-lora_uart.init(9600, bits=8, parity=None, stop=1)  
-#Send Online command to gateway while it power on to obtain its status data from gateway's database.
-#lora_uart.write('{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}\n')
-#time.sleep(1)
-#lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')	
-#LED shining regularly(using timer) to indicate the program is running correctly
-tim1 = Timer(1, freq=1)
-tim1.callback(lambda t: pyb.LED(1).toggle())
-
- 
-#Read the light intensity value from sensor regularly.
-
-lightVlaue = 0
-#time2 callback function, obtain value from light intensity sensor and send it to gateway via LoRa module.
-#Warning: interruput function can not execute complex task suck print(), otherwise it will execute only one time and die.
-def getLightInten():
-  global lightValue
-#  lightValue = LightIntensity.readLight()
-#  #print(lightValue)
-#  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
-#  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')
-	
-'''
-#Get soil moisture and send it to gateway, if the current value is lower than standard, gateway
-#will send 'irrigate' command to device, device will control steering engine to open the tap and water the plants.
-def moisture():
-  global moisture
-  moisture = moisture.readMoisture()
-  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"+moisture+"}\n')
-'''	
-
-#tim2 = Timer(2, freq=1)
-#tim2.callback(getLightInten())
-
-if __name__=='__main__':
-  while True:
-    print('LightIntensity:')
-    lightValue = LightIntensity.readLight()
-    print(lightValue)
-    
-    if lightValue > 1000:
-      irrigate.irrigate_start() 
-    else:
-      irrigate.irrigate_stop()
-    
-    time.sleep(3)
-	
-	
-'''
-    #Waiting for the message from UART4 to obtain LoRa data.
-    len = lora_uart.any()
-    if(len > 0): 
-      recv = lora_uart.read()
-      print(recv)
-      json_lora = json.loads(recv)
-      #Parse JSON from gateway.
-      if (json_lora.get("CMD") == 'Online' and json_lora.get("TYPE") == 'Light2' ): #Control the light(led on TPYBoard)
-        print('light2')
-        if json_lora.get("VALUE") == 'On':
-          pyb.LED(2).on()
- #         lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')		  
-        else:
-          pyb.LED(2).off()
-      elif json_lora.get("CMD") == 'irrigate': # irrigate the plants
-        if json_lora.get("VALUE") == 'Open':
-          irrigate.irrigate_start()
-        else:
-          irrigate.irrigate_stop()
-'''	
+if __name__ == '__main__':
+    try:
+        main()
+    except KeyboardInterrupt:
+        if ser != None:
+            ser.close()
