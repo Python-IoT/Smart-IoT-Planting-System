@@ -40,10 +40,10 @@ M1.low()
 #Init uart4 for LoRa module.
 lora_uart = UART(6,9600)  
 lora_uart.init(9600, bits=8, parity=None, stop=1)  
-cmd_online = '{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}\n'
 #Send Online command to gateway while it power on to obtain its status data from gateway's database.
-lora_uart.write(cmd_online)
-
+#lora_uart.write('{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}\n')
+#time.sleep(1)
+lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')	
 #LED shining regularly(using timer) to indicate the program is running correctly
 tim1 = Timer(1, freq=1)
 tim1.callback(lambda t: pyb.LED(1).toggle())
@@ -53,12 +53,13 @@ tim1.callback(lambda t: pyb.LED(1).toggle())
 
 lightVlaue = 0
 #time2 callback function, obtain value from light intensity sensor and send it to gateway via LoRa module.
+#Warning: interruput function can not execute complex task suck print(), otherwise it will execute only one time and die.
 def getLightInten():
   global lightValue
-  lightValue = LightIntensity.readLight()
-  #print(lightValue)
-  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
-  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')
+#  lightValue = LightIntensity.readLight()
+#  #print(lightValue)
+#  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
+#  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')
 	
 '''
 #Get soil moisture and send it to gateway, if the current value is lower than standard, gateway
@@ -69,8 +70,8 @@ def moisture():
   lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"+moisture+"}\n')
 '''	
 
-tim2 = Timer(2, freq=1)
-tim2.callback(getLightInten())
+#tim2 = Timer(2, freq=1)
+#tim2.callback(getLightInten())
 
 if __name__=='__main__':
   while True:
@@ -82,8 +83,10 @@ if __name__=='__main__':
       json_lora = json.loads(recv)
       #Parse JSON from gateway.
       if (json_lora.get("CMD") == 'Online' and json_lora.get("TYPE") == 'Light2' ): #Control the light(led on TPYBoard)
+        print('light2')
         if json_lora.get("VALUE") == 'On':
           pyb.LED(2).on()
+ #         lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"moisture", "VALUE":"1800"}\n')		  
         else:
           pyb.LED(2).off()
       elif json_lora.get("CMD") == 'irrigate': # irrigate the plants
