@@ -7,10 +7,10 @@
 #LoRa module: E32-TTL-100
 #Pin specification:
 #Module         MCU
-#M0(IN)    <--> GPIO(X3)(OUT)     #mode setting, can not hang
-#M1(IN)    <--> GPIO(X4)(OUT)     #mode setting, can not hang
-#RXD(IN)   <--> X1(TX)(OUT)   #UART4
-#TXD(OUT)  <--> X2(RX)(IN)    #UART4
+#M0(IN)    <--> GPIO(Y3)(OUT)     #mode setting, can not hang
+#M1(IN)    <--> GPIO(Y4)(OUT)     #mode setting, can not hang
+#RXD(IN)   <--> Y1(TX)(OUT)   #UART6
+#TXD(OUT)  <--> Y2(RX)(IN)    #UART6
 #AUX(OUT)  <--> GPIO/INT(IN)  #module status detecting
 #VCC
 #GND
@@ -33,16 +33,16 @@ Pin('Y11',Pin.OUT_PP).low() #GND
 Pin('Y9',Pin.OUT_PP).high() #VCC
 
 #Set LoRa module with mode-0.
-M0 = Pin('X3', Pin.OUT_PP)
-M1 = Pin('X4', Pin.OUT_PP)
+M0 = Pin('Y3', Pin.OUT_PP)
+M1 = Pin('Y4', Pin.OUT_PP)
 M0.low()
 M1.low()
 #Init uart4 for LoRa module.
-u4 = UART(4,9600)  
-u4.init(9600, bits=8, parity=None, stop=1)  
+lora_uart = UART(6,9600)  
+lora_uart.init(9600, bits=8, parity=None, stop=1)  
 cmd_online = '{"ID":"1", "CMD":"Online", "TYPE":"N", "VALUE":"N"}\n'
 #Send Online command to gateway while it power on to obtain its status data from gateway's database.
-u4.write(cmd_online)
+lora_uart.write(cmd_online)
 
 #LED shining regularly(using timer) to indicate the program is running correctly
 tim1 = Timer(1, freq=1)
@@ -57,7 +57,7 @@ def getLightInten():
   global lightValue
   lightValue = LightIntensity.readLight()
   #print(lightValue)
-  u4.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
+  lora_uart.write('{"ID":"1", "CMD":"ENV", "TYPE":"light", "VALUE":"+lightValue+"}\n')
 	
 '''
 #Get soil moisture and send it to gateway, if the current value is lower than standard, gateway
@@ -74,9 +74,9 @@ tim2.callback(getLightInten())
 if __name__=='__main__':
   while True:
     #Waiting for the message from UART4 to obtain LoRa data.
-    len = u4.any()
+    len = lora_uart.any()
     if(len > 0): 
-      recv = u4.read()
+      recv = lora_uart.read()
       print(recv)
       json_lora = json.loads(recv)
       #Parse JSON from gateway.
