@@ -24,6 +24,7 @@ import micropython
 import irrigate
 #Import light intensity needed module 
 import LightIntensity
+import moisture
 import time
 import json
 
@@ -84,6 +85,9 @@ if __name__=='__main__':
     else:
       irrigate.irrigate_stop()
     
+    print('Moisture:')
+    #Python func call need to (), otherwise : function getMoisAo at 0x20003d20
+    print(moisture.getMoisAo())	
     time.sleep(3)
 	
 	
