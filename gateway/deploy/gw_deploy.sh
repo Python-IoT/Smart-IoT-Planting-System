@@ -7,3 +7,6 @@ pipenv install requests
 #install virtualenv
 #install hbmqtt
 pip install hbmqtt
+
+#install sqlite
+sudo apt-get install sqlite sqlite3
