@@ -1,7 +1,11 @@
+#Install sqlite on RaspberryPi, the command is:
+sudo apt-get install sqlite sqlite3
 
+#In console create a database command:
 sqlite3 test.db
-
+#and then you need to create a table, after that a new database file named test.db will exist.
 create table smart_agri(device_id interger primary key, sensor_interval text,light_status text,alarm_swith text);
+
 
 insert into smart_agri values(1, '1000', 'ON', 'CLOSE');
 
