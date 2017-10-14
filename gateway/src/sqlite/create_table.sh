@@ -1,5 +1,5 @@
 #!/bin/sh
 rm -f cpu.db
-echo 'insert data'
-sqlite3 cpu.db < insert.sql
-echo 'insert done'
+echo 'database init start'
+sqlite3 cpu.db < db_init.sql
+echo 'database init done'
