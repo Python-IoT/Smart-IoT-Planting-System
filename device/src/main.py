@@ -26,6 +26,7 @@ import irrigate
 import LightIntensity
 import moisture
 import rainfall
+import WaterLevel
 import security
 import time
 import json
@@ -101,6 +102,10 @@ if __name__=='__main__':
 	
     print('4. Rainfall:')
     print(rainfall.getRainAo())	
+    print('')
+
+    print('5. WaterLevel:')
+    print(WaterLevel.getWaterLevel())	
     print('')
 	
     time.sleep(3)
