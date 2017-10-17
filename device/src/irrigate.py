@@ -5,6 +5,10 @@
 #deep red <--> GND
 #red      <--> VCC
 #yellow   <--> signal(X1)
+
+#Update!!!!!
+#Use real water pump(RS360) to irrigate the plants, need to use relay to drive the pump which is powered by 5V power.
+#
 from pyb import Servo
 servo=Servo(1) # X1
 def irrigate_start():
