@@ -6,6 +6,7 @@
 #AO is the specific value.
 
 import pyb
+from pyb import Pin
 
 adc = pyb.ADC(Pin('A7'))       # create an analog object from a pin
 adc = pyb.ADC(pyb.Pin.board.A7)
