@@ -25,6 +25,7 @@ import irrigate
 #Import light intensity needed module 
 import LightIntensity
 import moisture
+import rainfall
 import security
 import time
 import json
@@ -78,10 +79,12 @@ def moisture():
 if __name__=='__main__':
   while True:
     print('------------------------------------')
+	
     print('1. Light Intensity:')
     lightValue = LightIntensity.readLight()
     print(lightValue)
     print('')
+	
     if lightValue > 1000:
       irrigate.irrigate_start() 
     else:
@@ -91,8 +94,13 @@ if __name__=='__main__':
     #Python func call need to (), otherwise : function getMoisAo at 0x20003d20
     print(moisture.getMoisAo())	
     print('')
+	
     print('3. Security Status:')
     print(security.detectMotion())	
+    print('')
+	
+    print('4. Rainfall:')
+    print(rainfall.getRainAo())	
     print('')
 	
     time.sleep(3)
