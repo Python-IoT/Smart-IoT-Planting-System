@@ -3,7 +3,7 @@ from pyb import Pin
 from pyb import Timer  
 import micropython
 import time
-
+from DHT11 import DHT11
 
 micropython.alloc_emergency_exception_buf(100)
 
