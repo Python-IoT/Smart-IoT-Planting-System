@@ -1,3 +1,4 @@
+
 import pyb
 from pyb import Pin
 from pyb import Timer  
@@ -17,7 +18,13 @@ if __name__=='__main__':
     print('------------------------------------')
 	
     print('Temperature & Humidity:')
-    print(S.read_temps())
-    print('')	
-	
+#    S=DHT11('X8')
+    temp,hum = S.read_temp_hum()
+    print('Temperature:')
+    print(temp)
+    print('Humidity:')
+    print(hum)	
+    print('')
     time.sleep(3)
+	
+	
