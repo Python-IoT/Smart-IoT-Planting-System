@@ -17,7 +17,7 @@ class DHT11:
         N1 = Pin(self.PinName, Pin.OUT_PP)
         #N1=self.N1
         N1.low()
-        time.sleep(0.03)
+        time.sleep(0.018)
         N1.high()
         #wait to response
         N1 = Pin(self.PinName,Pin.IN)
