@@ -4,35 +4,32 @@ from pyb import Pin
 import time
 class DHT11:
     def __init__(self,pin_):
-        #self.data=[]
         self.PinName=pin_
         time.sleep(1)
-        self.N1 = Pin(pin_, Pin.OUT_PP)
-        #start work
-        #N2.low()
-        pyb.delay(10)
-    def read_temps(self):
+        self.gpio_pin = Pin(pin_, Pin.OUT_PP)
+#        pyb.delay(10)
+    def read_temp_hum(self):
         data=[]
         j=0
-        N1 = Pin(self.PinName, Pin.OUT_PP)
-        #N1=self.N1
-        N1.low()
+        gpio_pin=self.gpio_pin
+        gpio_pin = Pin(self.PinName, Pin.OUT_PP) # can not ignore
+        gpio_pin.low()
         time.sleep(0.018)
-        N1.high()
+        gpio_pin.high()
         #wait to response
-        N1 = Pin(self.PinName,Pin.IN)
-        while N1.value()==1:
+        gpio_pin = Pin(self.PinName,Pin.IN)
+        while gpio_pin.value()==1:
             continue
-        while N1.value()==0:
+        while gpio_pin.value()==0:
             continue
-        while N1.value()==1:
+        while gpio_pin.value()==1:
                 continue
         #get data
         while j<40:
             k=0
-            while N1.value()==0:
+            while gpio_pin.value()==0:
                 continue
-            while N1.value()==1:
+            while gpio_pin.value()==1:
                 k+=1
                 if k>100:break
             if k<3:
@@ -40,9 +37,8 @@ class DHT11:
             else:
                 data.append(1)
             j=j+1
-        print('Sensor is working')
         j=0
-        #get temperature
+		
         humidity_bit=data[0:8]
         humidity_point_bit=data[8:16]
         temperature_bit=data[16:24]
@@ -53,6 +49,16 @@ class DHT11:
         temperature=0
         temperature_point=0
         check=0
+        temp_negative=0
+
+#        data[24] = 1
+#        print(data[24:32])
+
+#means temperature value is negative,set data[24] with 0 to ignore it.
+        if data[24] == 1:  
+          data[24] = 0
+#          print(data[24:32])
+          temp_negative = 1
         for i in range(8):
             humidity+=humidity_bit[i]*2**(7-i)
             humidity_point+=humidity_point_bit[i]*2**(7-i)
@@ -61,7 +67,11 @@ class DHT11:
             check+=check_bit[i]*2**(7-i)
         tmp=humidity+humidity_point+temperature+temperature_point
         if check==tmp:
-            print('temperature is',temperature,'wet is',humidity,'%')
+            if temp_negative == 1:
+              return -(temperature+temperature_point/10),humidity+humidity_point/10
+              temp_negative = 0
+            else:
+              return temperature+temperature_point/10,humidity+humidity_point/10
         else:
-            print('SHUJUCUOWU',humidity,humidity_point,temperature,temperature_point,check)
-        return str(temperature)+','+str(humidity)
+            print('checksum ERROR')
+            return 0,0
