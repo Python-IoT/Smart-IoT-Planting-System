@@ -11,15 +11,17 @@
 
 #Water pump(RS360) is powered by 5V power.
 #Realy connect to GPIO(X2).
-
+import pyb
 from pyb import Servo
+from pyb import Pin
 servo=Servo(1) # X1
+pin_out = Pin('X2', Pin.OUT_PP)
 
 def irrigate_start():
-  servo.angle(90)
+  pin_out.high()
   
 def irrigate_stop():
-  servo.angle(0)
+  pin_out.low()
 
 def irrigate_rotate(angle):
   servo.angle(angle)
