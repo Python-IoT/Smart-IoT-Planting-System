@@ -4,12 +4,12 @@ from time import ctime,sleep
 
 def Lora(func):
   while True:
-    print(This is: %s. %s" %(func,ctime()))
+    print("This is %s. %d" % (func,ctime()))  
     sleep(1)
 
 def Lora_json(func):
   while True:
-    print(This is: %s. %s" %(func,ctime()))
+    print("This is %s. %d" % (func,ctime()))  
     sleep(1)
 
 threads = []
