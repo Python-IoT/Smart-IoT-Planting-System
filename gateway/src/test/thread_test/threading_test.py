@@ -1,17 +1,28 @@
 #!/usr/bin/env python
 import threading
-import time
- 
-def my_thread():
-  for i in range(0, 4):
-    print("\nThis is a sub thread!")
-    time.sleep(1)
- 
-thread1 = threading.Thread(target = my_thread, args = ())
-thread2 = threading.Thread(target = my_thread, args = ())
-thread1.start()
-thread2.start()
-thread1.join()
-thread2.join()
- 
-print("\nThis is the main thread!")
+from time import ctime,sleep
+
+def Lora(func):
+  while True:
+    print(This is: %s. %s" %(func,ctime()))
+    sleep(1)
+
+def Lora_json(func):
+  while True:
+    print(This is: %s. %s" %(func,ctime()))
+    sleep(1)
+
+threads = []
+t1 = threading.Thread(target=music,args=('Lora Thread'))
+threads.append(t1)
+t2 = threading.Thread(target=move,args=('Lora_json_parse Thread'))
+threads.append(t2)
+
+if __name__ == '__main__':
+    for t in threads:
+#        t.setDaemon(True)
+        t.start()
+  while True:
+   print("\nThis is the main thread!")
+   sleep(2)
+
