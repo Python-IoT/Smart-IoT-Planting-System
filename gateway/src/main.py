@@ -33,11 +33,11 @@ def Lora(func):
   while True:
     #Waiting for LoRa module message from uart port.
     count = ser.inWaiting()
-      if count != 0:
-        recv = ser.readline() #readline() need to set timeout, otherwise results block
-        ser.flushInput()
-        print(recv)
-      sleep(0.1)  
+    if count != 0:
+      recv = ser.readline() #readline() need to set timeout, otherwise results block
+      ser.flushInput()
+      print(recv)
+    sleep(0.1)  
         
 def Lora_json(func):
   while True:
