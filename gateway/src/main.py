@@ -19,7 +19,8 @@
 #GND
 
 #You need to install pyserial manually, install command is below:
-#pip install pyserial
+#pip install pyserial(Python2)
+#pip3 install pyserial(Python3)
 
 import serial
 import time
