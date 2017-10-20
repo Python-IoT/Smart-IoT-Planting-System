@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#### /usr/bin/python3.4
 #Communicate with end devices via LoRa.
 #Communicate with server via MQTT(hbmqtt) and HTTP POST.
 #Save data in the sqlite database.
@@ -29,7 +30,7 @@ import json
 ser  = serial.Serial("/dev/ttyS0", 9600, timeout=0.2)
 import threading
 from time import ctime,sleep
-
+recv = ''
 def Lora(func):
   while True:
     #Waiting for LoRa module message from uart port.
