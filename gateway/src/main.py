@@ -31,11 +31,38 @@ from time import ctime,sleep
 
 def Lora(func):
   while True:
-    print("This is %s. %s" % (func,ctime()))
-    sleep(1)
-
+    #Waiting for LoRa module message from uart port.
+    count = ser.inWaiting()
+      if count != 0:
+        recv = ser.readline() #readline() need to set timeout, otherwise results block
+        ser.flushInput()
+        print(recv)
+      sleep(0.1)  
+        
 def Lora_json(func):
   while True:
+    if recv.strip()=='':
+      print('recv is empty')
+    else:
+      json_lora = json.loads(recv)
+      #Parse JSON
+      #print(json_lora.get("ID"))
+      #print(json_lora["ID"])
+      #if json_lora.get("ID") == '1' : #Device ID-1 existed in gateway database
+      if int(json_lora.get("ID")) == 1 : #Device ID-1 existed in gateway database
+        if json_lora.get("CMD") == 'Online':
+          response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
+            print(response)
+            ser.write(response)
+          elif json_lora.get("CMD") == 'Env':
+            if json_lora.get("TYPE") == 'moisture':
+              if int(json_lora.get("VALUE")) < 2000: # soil moisture is lower than standard
+                response = '{"ID":"1", "CMD":"irrigate", "TYPE":"Open", "VALUE":"100"}'
+                ser.write(response)
+        else:
+          print('init_device')
+          #init_device()  #Create sqlite table for device 1.
+      
     print("This is %s. %s" % (func,ctime()))
     sleep(1)
 
