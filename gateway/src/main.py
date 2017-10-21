@@ -69,6 +69,10 @@ def Lora_json(func):
     print("This is %s. %s" % (func,ctime()))
     sleep(1)
 
+def gateway_init():
+  print('gateway init')
+  print('')
+  
 threads = []
 t1 = threading.Thread(target=Lora,args=('Lora Thread',))
 threads.append(t1)
@@ -76,6 +80,7 @@ t2 = threading.Thread(target=Lora_json,args=('Lora_json_parse Thread',))
 threads.append(t2)
 
 if __name__ == '__main__':
+  #gateway_init()
   for t in threads:
 #        t.setDaemon(True)
     t.start()
