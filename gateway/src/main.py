@@ -55,12 +55,11 @@ def Lora_json(func):
         if json_lora.get("CMD") == 'Online':
           response = '{"ID":"1", "CMD":"Online", "TYPE":"Light2", "VALUE":"On"}'
           print(response)
-          ser.write(response)
         elif json_lora.get("CMD") == 'Env':
           if json_lora.get("TYPE") == 'moisture':
             if int(json_lora.get("VALUE")) < 2000: # soil moisture is lower than standard
               response = '{"ID":"1", "CMD":"irrigate", "TYPE":"Open", "VALUE":"100"}'
-              ser.write(response)
+        ser.write(str.encode(response))
       else:
         print('init_device')
         #init_device()  #Create sqlite table for device 1.
