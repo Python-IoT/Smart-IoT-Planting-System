@@ -3,11 +3,18 @@
 import time
 from datetime import datetime, timedelta
 from time import sleep
-
+import requests
 SECONDS_PER_DAY = 24 * 60 * 60
 
 def doFunc():
-    print('do Function...')
+  import requests
+ 
+  url = 'http://www.sips/gateway/123456/upload'
+  files = {'file': open('/home/sips/123456/gateway.db', 'rb')}
+  #files = {'file': ('report.jpg', open('/home/lyb/sjzl.mpg', 'rb'))}      
+  r = requests.post(url, files=files)
+  print(r.text)  
+  print('upload gateway.db to server...')
 
 def doFirst():
   curTime = datetime.now()
