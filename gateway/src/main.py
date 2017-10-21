@@ -31,6 +31,7 @@ ser  = serial.Serial("/dev/ttyS0", 9600, timeout=0.2)
 import threading
 from time import ctime,sleep
 recv = ''
+#Function of Thread Lora, waiting for the data(json) from device via LoRa-module.
 def Lora(func):
   global recv
   while True:
