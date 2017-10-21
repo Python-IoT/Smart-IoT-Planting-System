@@ -43,7 +43,8 @@ def Lora(func):
       ser.flushInput()
       print(recv)
     sleep(0.1)  
-        
+   
+#Function of Thread Lora_json, parse the json from device.  
 def Lora_json(func):
   global recv
   while True:
