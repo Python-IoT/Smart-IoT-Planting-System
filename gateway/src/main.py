@@ -46,7 +46,7 @@ def Lora_json(func):
     if recv.strip()=='':
       print('recv is empty')
     else:
-      json_lora = json.loads(recv)
+      json_lora = json.loads(bytes.decode(recv))
       #Parse JSON
       #print(json_lora.get("ID"))
       #print(json_lora["ID"])
