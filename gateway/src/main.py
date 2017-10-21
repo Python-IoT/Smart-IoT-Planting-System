@@ -38,6 +38,7 @@ def Lora(func):
     count = ser.inWaiting()
     if count != 0:
       recv = ser.readline() #readline() need to set timeout, otherwise results block
+      #hbmqtt_send(recv)  #send recv to server via MQTT
       ser.flushInput()
       print(recv)
     sleep(0.1)  
