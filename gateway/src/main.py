@@ -32,6 +32,7 @@ import threading
 from time import ctime,sleep
 recv = ''
 def Lora(func):
+  global recv
   while True:
     #Waiting for LoRa module message from uart port.
     count = ser.inWaiting()
@@ -42,6 +43,7 @@ def Lora(func):
     sleep(0.1)  
         
 def Lora_json(func):
+  global recv
   while True:
     if recv.strip()=='':
       print('recv is empty')
@@ -63,7 +65,7 @@ def Lora_json(func):
       else:
         print('init_device')
         #init_device()  #Create sqlite table for device 1.
-      
+      recv = ''
     print("This is %s. %s" % (func,ctime()))
     sleep(1)
 
