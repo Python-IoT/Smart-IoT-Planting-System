@@ -71,7 +71,17 @@ def Lora_json(func):
 
 def gateway_init():
   print('gateway init')
-  print('')
+  print('check gateway database existed or not')
+  print('dateway database do not exist')
+  print('read gateway ID from gateway.inf')
+  print('send ID to server to check gateway database backup on server or not')
+  #requests.post('http://www.sips.com/gateway', data=json.dumps({'ID': '123456'}))
+  print('if ID backup on server, download it, otherwise init it')
+  #url = 'http://www.sips.com/gateway/123456/sips.db'
+  #r = requests.get(url) 
+  #with open("sips.db", "wb") as code:
+  # code.write(r.content)
+  print('init database......')
   
 threads = []
 t1 = threading.Thread(target=Lora,args=('Lora Thread',))
