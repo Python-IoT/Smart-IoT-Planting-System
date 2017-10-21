@@ -72,6 +72,13 @@ def Lora_json(func):
     print("This is %s. %s" % (func,ctime()))
     sleep(1)
 
+#Function of Thread gateway_mqtt, waiting for the data(json) from server via MQTT.
+#Use hbmqtt
+def gateway_mqtt(func):
+  while True:
+    #Waiting for json from server via MQTT.    
+    print('Waiting for MQTT data from server.....')
+    
 def gateway_init():
   print('gateway init')
   print('check gateway database existed or not')
