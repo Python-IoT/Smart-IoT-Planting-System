@@ -1,4 +1,7 @@
 #!/bin/sh
+#PC ubuntu simulate server.
+#Python2.7.9
+
 #install pip
 #universal method：
 curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
