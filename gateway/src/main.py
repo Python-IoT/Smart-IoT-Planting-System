@@ -82,6 +82,11 @@ def gateway_mqtt(func):
 def mqtt_parse(func):
   while True:
     #check MQTT message appear or not
+    #parse_mqtt()
+    #send command to device
+    #LoRa_send()
+    #insert the setting data into sqlite database
+    #db_operate()
     
     
 def gateway_init():
