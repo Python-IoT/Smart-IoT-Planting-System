@@ -103,7 +103,10 @@ t1 = threading.Thread(target=Lora,args=('Lora Thread',))
 threads.append(t1)
 t2 = threading.Thread(target=Lora_json,args=('Lora_json_parse Thread',))
 threads.append(t2)
-
+t3 = threading.Thread(target=gateway_mqtt,args=('MQTT listen Thread',))
+threads.append(t3)
+t4 = threading.Thread(target=mqtt_parse,args=('MQTT Parse Thread',))
+threads.append(t4)
 if __name__ == '__main__':
   #gateway_init()
   for t in threads:
