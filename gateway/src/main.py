@@ -78,6 +78,11 @@ def gateway_mqtt(func):
   while True:
     #Waiting for json from server via MQTT.    
     print('Waiting for MQTT data from server.....')
+ 
+def mqtt_parse(func):
+  while True:
+    #check MQTT message appear or not
+    
     
 def gateway_init():
   print('gateway init')
