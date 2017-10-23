@@ -39,6 +39,7 @@ def Lora(func):
     count = ser.inWaiting()
     if count != 0:
       recv = ser.readline() #readline() need to set timeout, otherwise results block
+      #put recv in quene, Thread Lora_json will deal with recv command one by one while it is free
       #hbmqtt_send(recv)  #send recv to server via MQTT
       ser.flushInput()
       print(recv)
