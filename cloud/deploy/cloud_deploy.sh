@@ -1,7 +1,16 @@
 #!/bin/sh
 #PC ubuntu simulate server.
-#Python2.7.9
+cd /usr/bin
+#because MQTT run best with Python 3.4.3, so we need to use Python3.4
+ln -s python3.4 python
+apt-get install python3-pip
+pip3 install hbmqtt
 
+
+
+
+
+#------------------------------------------
 #install pip
 #universal method：
 curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
