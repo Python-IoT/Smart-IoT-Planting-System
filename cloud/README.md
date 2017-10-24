@@ -19,6 +19,6 @@ Django read data from MySQL and show it on the top of highcharts.
 - environment display: use highcharts to show env info
 - light: control light remotely, show its status(on/off)
 - irrigation: manual/auto(set time or siol moisture threshold value)
-- security: hack record, alarm phone set
+- security: hack record, alarm method(text message, call the phone, web message)
 - device management: online/offline, battery volume, hardware topology
 - user: profile, password, figure
