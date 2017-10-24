@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #0:0:07 everyday upload gateway.db to server to backup
+#gateway.db will save in server for 7 days, server will delete gateway.db older than 7 days
 import time
 from datetime import datetime, timedelta
 from time import sleep
@@ -10,8 +11,7 @@ def doFunc():
   import requests
  
   url = 'http://www.sips/gateway/123456/upload'
-  files = {'file': open('/home/sips/123456/gateway.db', 'rb')}
-  #files = {'file': ('report.jpg', open('/home/lyb/sjzl.mpg', 'rb'))}      
+  files = {'file': open('/home/sips/123456/123456.db', 'rb')} 
   r = requests.post(url, files=files)
   print(r.text)  
   print('upload gateway.db to server...')
