@@ -30,4 +30,6 @@ Gateway online method of communication with cloud base on HTTP(requests).
 
 Gateway heartbeat and command with cloud base on MQTT(hbmqtt).
 
-could web base on Django and bootstrap, user command send to gateway via MQTT.
+could web base on Django and bootstrap, user command send to gateway via MQTT.  
+
+hbmqtt and Django interact base on  MySQL database.
