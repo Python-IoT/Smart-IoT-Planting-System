@@ -22,3 +22,7 @@ Django read data from MySQL and show it on the top of highcharts.
 - security: hack record, alarm method(text message, call the phone, web message)
 - device management: online/offline, battery volume, hardware topology
 - user: profile, password, figure
+
+
+
+Gateway online will send message to cloud, sync the data from cloud to local.
