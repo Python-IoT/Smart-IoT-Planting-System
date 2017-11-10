@@ -29,3 +29,5 @@ Gateway online will send message to cloud, sync the data from cloud to local.
 Gateway online method of communication with cloud base on HTTP(requests).   
 
 Gateway heartbeat and command with cloud base on MQTT(hbmqtt).
+
+could web base on Django and bootstrap, user command send to gateway via MQTT.
