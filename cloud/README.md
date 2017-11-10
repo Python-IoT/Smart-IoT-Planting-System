@@ -26,3 +26,4 @@ Django read data from MySQL and show it on the top of highcharts.
 
 
 Gateway online will send message to cloud, sync the data from cloud to local.
+Gateway online method of communication with cloud base on HTTP(requests).
