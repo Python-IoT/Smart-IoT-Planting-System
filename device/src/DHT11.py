@@ -56,9 +56,9 @@ class DHT11:
 
 #means temperature value is negative,set data[24] with 0 to ignore it.
         if data[24] == 1:  
-          data[24] = 0
-#          print(data[24:32])
-          temp_negative = 1
+            data[24] = 0
+#            print(data[24:32])
+            temp_negative = 1
         for i in range(8):
             humidity+=humidity_bit[i]*2**(7-i)
             humidity_point+=humidity_point_bit[i]*2**(7-i)
