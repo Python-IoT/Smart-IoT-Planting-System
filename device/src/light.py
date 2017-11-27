@@ -14,3 +14,14 @@ def Turn_Off(num):
 #Adjust lightness of led.
 def Lightness(par):
   pwm_control
+
+  
+import pyb
+from pyb import Pin
+pin_out = Pin('Y2', Pin.OUT_PP)
+
+def light_on():
+  pin_out.high()
+  
+def light_off():
+  pin_out.low()  
