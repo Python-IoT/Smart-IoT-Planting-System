@@ -25,6 +25,5 @@ Smart IoT Planting System is an intelligence/smart/automatic planting project co
 ## Cloud UI:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/environment.png)
 
-## Smartphone UI:
-![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/app_ui.jpg)
+
 
