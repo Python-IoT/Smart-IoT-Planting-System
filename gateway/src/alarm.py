@@ -9,3 +9,8 @@
 
 import serial   
 se = serial.Serial("/dev/ttyS0", 115200) 
+
+def alarm_call(num):
+  se.write('ATD'+num.decode())
+
+def alam_sms()
