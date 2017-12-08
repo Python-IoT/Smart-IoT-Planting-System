@@ -7,3 +7,5 @@
 #(#8)TX  <-->    URX
 #(#10)RX <-->    UTX
 
+import serial   
+se = serial.Serial("/dev/ttyS0", 115200) 
