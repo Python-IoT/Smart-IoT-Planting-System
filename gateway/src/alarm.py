@@ -16,3 +16,7 @@ def alarm_call(num):
 def alam_sms(num,content):
   se.write('AT+CMGF=1'.decode())
   se.write('AT+CSCS="GSM"'.decode())
+  if '>' in se.read():
+    se.write(0x1a)
+  else:
+    return
