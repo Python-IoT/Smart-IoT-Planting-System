@@ -13,4 +13,5 @@ se = serial.Serial("/dev/ttyS0", 115200)
 def alarm_call(num):
   se.write('ATD'+num.decode())
 
-def alam_sms()
+def alam_sms(num,content):
+  se.write('AT+CMGF=1'.decode())
