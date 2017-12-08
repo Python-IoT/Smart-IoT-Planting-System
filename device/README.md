@@ -15,3 +15,6 @@ Features include:
 - automatic irrigation
 - lighting controlling
 - security system
+
+## Hardware lists:
+![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/device/TPYboard/end-device-hardware-list.jpg)
