@@ -3,7 +3,8 @@ Devices need to send a notice message to gateway while it boot up every time.
 Gateway will respond to device with device's relevant data(light on/off, watering status, etc) in database(sqlite).  
 
 Gateway(Raspberry Pi) communicate with Server via MQTT and HTTP(request).  
-MQTT python module is hbmqtt.
+MQTT python module is hbmqtt.   
+Gateway is MQTT client, Server is MQTT broker and client.  
 
 
 
