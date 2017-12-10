@@ -20,3 +20,4 @@ def alam_sms(num,content):
     se.write(0x1a)
   else:
     return
+#test call
