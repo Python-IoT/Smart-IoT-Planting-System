@@ -21,3 +21,4 @@ def alam_sms(num,content):
   else:
     return
 #test call
+#test SMS
