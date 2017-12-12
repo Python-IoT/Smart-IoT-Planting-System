@@ -9,7 +9,7 @@ Smart IoT Planting System is an intelligence/smart/automatic planting project co
 - lighting controlling
 
 ## Software architecture:
-![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/sys-arch-diagram.png)
+![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/arch-diagram.png)
 
 ## Hardware lists:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/Hardware-kit-2.jpg)
