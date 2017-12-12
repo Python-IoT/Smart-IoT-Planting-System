@@ -1,5 +1,5 @@
 # (SIPS)Smart-IoT-Planting-System
-
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)   
 Smart IoT Planting System is an intelligence/smart/automatic planting project consist of sensors,actuator,LoRa,gateway,cloud.  
 ## Features:
 - device(node and gateway) management(device battery, device watchdog reboot log, gateway CPU, on-line status)
