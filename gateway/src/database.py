@@ -23,4 +23,10 @@ def create_table():
   con.commit()
   con.close()
   
-  
+def insert_data():
+  con = sqlite3.connect('gw.db')
+  c = con.cursor()
+  sql_str = "INSERT INTO DEVICE VALUES (2, 'soybean','greenhouse for soybean' , 1,28.5,45, 0 );"
+  c.execute(sql_str)
+  con.commit()
+  con.close()
