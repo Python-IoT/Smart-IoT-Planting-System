@@ -2,8 +2,8 @@
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)   
 SIPS is an intelligence/smart/automatic planting system in the agricultural greenhouse which is base on IoT technology.   
 It consists of sensors, terminal device(STM32 MCU), gateway(RPi), Web server.   
-This system adopted LoRa, MQTT, GSM module, Django web framework, echarts, bootstrap and ajax.  
-Most codes are implemented by Python.  
+This system adopted LoRa, MQTT, GSM module, Django web framework, echarts, bootstrap and ajax.   
+Most of the source codes are implemented by Python.  
 ## Features:
 - device(node and gateway) management(device battery, device watchdog reboot log, gateway CPU, on-line status)
 - environmental(air temperature&humility, light intensity, soil moisture, water level, raining volume ) monitoring
