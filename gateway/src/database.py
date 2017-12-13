@@ -5,3 +5,22 @@ import sqlite3
 def create_db():
   con = sqlite3.connect('gw.db')
   print(con)
+  
+def create_table():
+  con = sqlite3.connect('gw.db')
+  c = con.cursor()
+  sql_str = '''CREATE TABLE DEVICE(
+  ID INTEGER PRIMARY KEY    NOT NULL,
+  NAME      TEXT,
+  INFO      TEXT,
+  LIGHT     INTEGER,
+  TEMP      REAL,
+  HUM       REAL,
+  ALARM     INTEGER
+  );
+  '''
+  c.execute(sql_str)
+  con.commit()
+  con.close()
+  
+  
