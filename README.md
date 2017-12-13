@@ -5,6 +5,12 @@ It consists of sensors, terminal device(STM32 MCU), gateway(RPi), Web server.
 This system adopted LoRa, MQTT, GSM module, Django web framework, echarts, bootstrap and ajax.   
 Most of the source codes are implemented by Python.  
 ## Features:
+- **Environmental Monitoring**    Show environment information, such as air temperature&humility, light intensity, soil moisture, water level, raining volume
+- Irrigating Remotely
+- Security System
+- Light Controlling
+- Devices Tracking
+- File Mangement
 - device(node and gateway) management(device battery, device watchdog reboot log, gateway CPU, on-line status)
 - environmental(air temperature&humility, light intensity, soil moisture, water level, raining volume ) monitoring
 - automatic irrigation
