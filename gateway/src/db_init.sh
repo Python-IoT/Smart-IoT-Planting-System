@@ -27,3 +27,6 @@ VALUES (1, 'corn','number 1 greenhouse for corn' , 1, 0 );
 
 #modify data
 UPDATE DEVICE SET LIGHT = 0 WHERE ID = 2;
+
+#delete data
+DELETE FROM DEVICE WHERE ID = 1;
