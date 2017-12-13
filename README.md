@@ -12,7 +12,7 @@ Most of the source codes are implemented by Python.  
   Control pump to irrigate by 3 methods, auto, manual or regularly.
 - **Security System**   
   Trigger alarm while detecting signal from IR sensor.
-- **Light Controlling**   
+- **Light Controlling**   
   Control light by 3 methods, auto, manual or regularly.
 - **Devices Tracking**   
   Show the online status, battery of all the hardware devices.
