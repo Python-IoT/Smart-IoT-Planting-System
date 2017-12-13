@@ -21,3 +21,6 @@ ALTER TABLE DEVICE ADD COLUMN ALARM INTERGER;
 #insert data
 INSERT INTO DEVICE(ID,NAME,INFO,LIGHT,ALARM)
 VALUES (1, 'corn','number 1 greenhouse for corn' , 1, 0 );
+
+.headers on 
+.mode column
