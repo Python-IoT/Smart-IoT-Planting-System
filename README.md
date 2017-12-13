@@ -4,28 +4,28 @@ SIPS is an intelligence/smart/automatic planting system in the agricultural gree
 It consists of sensors, terminal device(STM32 MCU), gateway(RPi), Web server.   
 This system adopted LoRa, MQTT, GSM module, Django web framework, echarts, bootstrap and ajax.   
 Most of the source codes are implemented by Python.  
+
 ## Features:
 - **Environmental Monitoring**    
-  Show environment information, such as air temperature&humility, light intensity, soil moisture, water level, raining volume
-- Irrigating Remotely
-- Security System
-- Light Controlling
-- Devices Tracking
-- File Mangement
-- device(node and gateway) management(device battery, device watchdog reboot log, gateway CPU, on-line status)
-- environmental(air temperature&humility, light intensity, soil moisture, water level, raining volume ) monitoring
-- automatic irrigation
-- security & alarm
-- lighting controlling
-- File mangement
+  Show environment information, such as air temperature, humility, light intensity, soil moisture, water level, raining volume.
+- **Irrigating Remotely**   
+  Control pump to irrigate by 3 methods, auto, manual or regularly.
+- **Security System**   
+  Trigger alarm while detecting signal from IR sensor.
+- **Light Controlling**   
+  Control light by 3 methods, auto, manual or regularly.
+- **Devices Tracking**   
+  Show the online status, battery of all the hardware devices.
+- **File Mangement**    
+  Mange database file of gateway.
 
-## Software architecture:
+## Project Diagram:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/arch-diagram.png)
 
-## Hardware lists:
+## Hardware Lists:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/Hardware-kit-2.jpg)
 
-## Deployment steps:
+## Deployment Steps:
 - download source code
 - obtain hardware kits
 - TYPBoard wiring and firmware download
