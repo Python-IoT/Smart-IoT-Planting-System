@@ -24,3 +24,6 @@ VALUES (1, 'corn','number 1 greenhouse for corn' , 1, 0 );
 
 .headers on 
 .mode column
+
+#modify data
+UPDATE DEVICE SET LIGHT = 0 WHERE ID = 2;
