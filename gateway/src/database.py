@@ -4,7 +4,7 @@ import sqlite3
 #os.system('./db_init.sql') #create database and init the tables
 
 #ID    LIGHT    PUMP      ANGLE    ALARM        PHONE
-#1	   On/OFF	  Run/Stop	45/90	   Open/Close	  13880002222
+#1    On/OFF    Run/Stop  45/90    Open/Close   13880002222
 def create_db():
   con = sqlite3.connect('gw.db')
   print(con)
