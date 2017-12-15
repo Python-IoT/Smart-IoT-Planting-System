@@ -6,5 +6,6 @@ Gateway hardware list:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/gateway/hardware/RaspberryPi-3B.jpg)
 - LoRa module(E32-TTL-100)   
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/gateway/hardware/LoRa-module.png)
-- GSM module(GA6)
+- GSM module(GA6)    
+![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/gateway/hardware/GSM-module.png)
 
