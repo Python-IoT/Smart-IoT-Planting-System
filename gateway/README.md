@@ -7,6 +7,7 @@ MQTT python module is hbmqtt.
 Gateway is MQTT client, Server is MQTT broker and client.     
 
 ##Messages between End-device and Gateway:   
+
 Message Type | ori_ID | des_ID | CMD | VALUE | Message Direction   
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------    
 Online Message | 1 | 123456 | Online | None | End-device -> Gateway
