@@ -14,7 +14,7 @@ Online Message | 1 | 123456 | Online | None | End-device -> Gateway
 Heartbeat Message | 1 |	123456 |	Heart |	[{"battery":"80"}] |	End-device -> Gateway    
 Environmental Information |	1 |	123456 |	Env	| [{"temp":"28"},{"hum":"65"},...] | End-device -> Gateway     
 Alarm Message | 1 | 123456 | ALarm | None | End-device -> Gateway     
-Controlling Command |	123456 |	1 |	Control	[{"light":"On"},{"pump":"Stop"},...] | Gateway -> End-device
+Controlling Command |	123456 |	1 |	Control	| [{"light":"On"},{"pump":"Stop"},...] | Gateway -> End-device
 
 
 
