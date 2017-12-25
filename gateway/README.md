@@ -10,7 +10,9 @@ Gateway is MQTT client, Server is MQTT broker and client.
 
 Message Type | ori_ID | des_ID | CMD | VALUE | Message Direction   
 ------------ | ------------- | ------------- | ------------- | ------------- | -------------    
-Online Message | 1 | 123456 | Online | None | End-device -> Gateway
+Online Message | 1 | 123456 | Online | None | End-device -> Gateway    
+Heartbeat Message | 1 |	123456 |	Heart |	[{"battery":"80"}] |	End-device -> Gateway
+
 
 
 
