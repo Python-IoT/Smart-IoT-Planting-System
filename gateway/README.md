@@ -13,9 +13,9 @@ Message Type | ori_ID | des_ID | CMD | VALUE | Message Direction
 Online Message | 1 | 123456 | Online | None | End-device -> Gateway    
 Heartbeat Message | 1 |	123456 |	Heart |	[{"battery":"80"}] |	End-device -> Gateway    
 Environmental Information |	1 |	123456 |	Env	| [{"temp":"28"},\
-{"hum":"65"},\
-...\
-]\ | End-device -> Gateway 
+{"hum":"65"},
+...
+] | End-device -> Gateway 
 
 
 
