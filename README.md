@@ -38,7 +38,7 @@ Most of the source codes are implemented by Python.  
 
 
 Hardware list obtain:   
-Online: <https://detail.tmall.com/item.htm?id=557884190173&ali_refid=a3_430583_1006:1105576471:N:%E5%BC%80%E5%8F%91%E6%9D%BF:cbf8bfc1b3c31b4a023b7c47d22d6e13&ali_trackid=1_cbf8bfc1b3c31b4a023b7c47d22d6e13&spm=a230r.1.14.1>   
+Online: <https://>   
 Email: <mikepetermessidona@hotmail.com>
 
 
