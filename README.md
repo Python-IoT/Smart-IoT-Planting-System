@@ -27,8 +27,8 @@ Most of the source codes are implemented by Python.  
 
 ## Obtain Hardware:   
 Contact me by mail, wechat or twitter.   
-Mail: mikepetermessidona@hotmail.com
-Wechat: Arvin-Messi
+Mail: mikepetermessidona@hotmail.com    
+Wechat: Arvin-Messi    
 Twitter: Messi_Arvin
 
 ## Deployment Steps:
