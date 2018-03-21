@@ -25,6 +25,12 @@ Most of the source codes are implemented by Python.  
 ## Hardware Lists:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/Hardware-kit-2.jpg)
 
+## Obtain Hardware:   
+Contact me by mail, wechat or twitter.   
+Mail: mikepetermessidona@hotmail.com
+Wechat: Arvin-Messi
+Twitter: Messi_Arvin
+
 ## Deployment Steps:
 - download source code
 - obtain hardware kits
@@ -36,10 +42,6 @@ Most of the source codes are implemented by Python.  
 ## Cloud UI:
 ![Alt text](https://github.com/Python-IoT/Smart-IoT-Planting-System/blob/master/arch/environment.png)
 
-
-Hardware list obtain:   
-Online: <https://>   
-Email: <mikepetermessidona@hotmail.com>
 
 
 
